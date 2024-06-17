@@ -4,16 +4,36 @@
   outline: 1px solid red;
 }
 
+.side-container h3 {
+  margin-block: 2rem;
+}
 .side-container ul {
-  margin: 0;
   padding: 0;
   list-style-type: none;
 }
 
 .side-container li {
-  margin-bottom: 15px;
+  margin-block: 2rem;
   display: flex;
   align-items: flex-end;
   align-content: center;
   gap: .5rem;
+  
 }
+
+.genres {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start !important;
+}
+
+.genres button {
+  color: var(--text-milk-white-color);
+  background-color: transparent;
+  border: 1px solid var(--neon-color-green);
+  padding: 8px 12px;
+  border-radius: 15px;
+}
+
