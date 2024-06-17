@@ -1,4 +1,6 @@
 .navbar-container {
+  position:sticky;
+  top: 0;
   width:100%;
   display: flex;
   justify-content:center;
@@ -18,4 +20,5 @@
   bottom:-5px;
   background-color: transparent;
   border:none;
+
 }

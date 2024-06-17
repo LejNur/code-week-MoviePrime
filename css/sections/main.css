@@ -1,11 +1,12 @@
 main {
   outline:1px solid greenyellow;
+  height:100vh;
   display: grid;
   grid-template-columns: 15rem 1fr;
+  
 }
 
 .side-container {
-  height: 100vh;
   padding:3rem;
   outline:1px solid red;
 }
@@ -26,4 +27,5 @@ main {
 
 .main-container{
   outline:1px solid yellow;
+  
 }
