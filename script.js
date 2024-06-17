@@ -35,11 +35,21 @@ const getGenreList = async () => {
     genreBtnEl.id = genre.id;
 
     genreListEl.appendChild(genreBtnEl);
+
+// Filtering genre
+    genreBtnEl.addEventListener('click', async (event) => {
+      const genreID = event.target.id;
+      console.log(genreID);
+      const filterGenre = await GET(`discover/${type}`, 1, `with_genres=${genreID}`);
+      const filterResult = filterGenre.results;
+      renderCardList(filterResult, mainContainerEl);
+    })
   })
 
   };
 
 getGenreList();
+
 
 
 
@@ -58,7 +68,7 @@ navbarContainerEl.addEventListener('click', (event) => {
   // console.log(await GET("discover/movie", 1));
 
 // movie o series list
-// https://api.themoviedb.org/3/genre/movie/list
+
 
 //Page buttons
 pageButtons.forEach((button) => {
