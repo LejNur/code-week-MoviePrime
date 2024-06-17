@@ -1,0 +1,19 @@
+.side-container {
+  padding: 3rem;
+  height: inherit;
+  outline: 1px solid red;
+}
+
+.side-container ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.side-container li {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: flex-end;
+  align-content: center;
+  gap: .5rem;
+}
