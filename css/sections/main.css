@@ -1,6 +1,5 @@
 main {
   outline:1px solid greenyellow;
-  
   display: grid;
   grid-template-columns: 15rem 1fr;
   
@@ -8,5 +7,37 @@ main {
 
 .main-container{
   outline:1px solid yellow;
-  
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.card {
+  width:250px;
+  height: 200px;
+  padding: 10rem 0 2rem;
+  border-radius: 15px;
+  /* box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px; */
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.card-content {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  height: 100%;
+  margin-top: 40%;
+  padding: 1rem;
+  overflow: hidden;
+
+}
+
+.card-content p {
+  color: white;
 }

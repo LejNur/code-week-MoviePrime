@@ -1,22 +1,25 @@
 //Rendering Movie Card List
-export function renderCardList(movie, container) {
+export function renderCardList(movies, container) {
 
   container.innerHTML = "";
-  movie.forEach((element) => {
+  movies.forEach((movie) => {
     const card = document.createElement("div");
     const cardContent = document.createElement("div");
-    const cardTitle = document.createElement("h2");
-    const cardOverview = document.createElement("p");
+    const cardTitle = document.createElement("h3");
+    const cardInfos = document.createElement("p");
+    // const cardOverview = document.createElement("p");
 
     card.className = "card";
-    card.style.backgroundImage = `url('https://image.tmdb.org/t/p/w1280${element.poster_path}')`;
+    card.style.backgroundImage = `url('https://image.tmdb.org/t/p/w1280${movie.poster_path}')`;
     cardContent.className = 'card-content';
-    cardTitle.textContent = element.title ?? element.name;
-    cardOverview.textContent = element.overview;
+    cardTitle.textContent = movie.title ?? movie.name;
+    cardInfos.textContent = movie.release_date.substring(0,4);
+    // cardOverview.textContent = movie.overview;
 
     container.append(card);
     card.appendChild(cardContent);
     cardContent.appendChild(cardTitle);
-    cardContent.appendChild(cardOverview);
+    cardContent.appendChild(cardInfos);
+    // cardContent.appendChild(cardOverview);
   });
 }

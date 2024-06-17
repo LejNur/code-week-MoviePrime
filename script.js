@@ -19,4 +19,4 @@ const render = async () => {
 render();
 
 
-// console.log(await GET("discover/movie", 1));
+console.log(await GET("discover/movie", 1));
