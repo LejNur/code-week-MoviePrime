@@ -5,6 +5,7 @@ import { renderCardList } from "./js/renderCardList.js";
 const mainContainerEl = document.querySelector(".main-container");
 const genreListEl = document.querySelector(".genres");
 const navbarContainerEl = document.querySelector('.navbar-container');
+const pageButtons = document.querySelectorAll(".page-btn");
 
 let page = 1;
 let results = [];
@@ -40,7 +41,7 @@ const getGenreList = async () => {
 getGenreList();
 
 
-console.log(navbarContainerEl);
+
 //Type Filter
 navbarContainerEl.addEventListener('click', (event) => {
   if(event.target.tagName === 'A') {
@@ -56,3 +57,18 @@ navbarContainerEl.addEventListener('click', (event) => {
 
 // movie o series list
 // https://api.themoviedb.org/3/genre/movie/list
+
+//Page buttons
+pageButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    
+    if(button.classList.contains('left')) {
+      if(page <= 1) return;
+      page--;
+    } else {
+      page++;
+    }
+    console.log(page);
+    render();
+  });
+});
