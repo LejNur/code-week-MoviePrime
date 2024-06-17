@@ -2,6 +2,7 @@
   padding: 3rem;
   height: inherit;
   outline: 1px solid red;
+  grid-column: 10rem;
 }
 
 .side-container h3 {

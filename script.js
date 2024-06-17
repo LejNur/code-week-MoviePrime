@@ -40,9 +40,8 @@ const getGenreList = async () => {
 getGenreList();
 
 
-
 console.log(navbarContainerEl);
-
+//Type Filter
 navbarContainerEl.addEventListener('click', (event) => {
   if(event.target.tagName === 'A') {
     const typeID = event.target.id;
