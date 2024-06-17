@@ -6,6 +6,7 @@ const mainContainerEl = document.querySelector(".main-container");
 const genreListEl = document.querySelector(".genres");
 const navbarContainerEl = document.querySelector('.navbar-container');
 const pageButtons = document.querySelectorAll(".page-btn");
+const sidebarMenuEl = document.querySelector(".sidebar-menu");
 
 let page = 1;
 let results = [];
@@ -47,7 +48,8 @@ navbarContainerEl.addEventListener('click', (event) => {
   if(event.target.tagName === 'A') {
     const typeID = event.target.id;
     type = typeID;
-    page = 1 ;
+    page = 1;
+    category = 'popular';
     render();
   }
     
@@ -72,3 +74,18 @@ pageButtons.forEach((button) => {
     render();
   });
 });
+
+//Category Filter
+sidebarMenuEl.addEventListener('click', (event) => {
+  const id = event.target.id;
+  switch(id) {
+    case 'upcoming': 
+      category = id;
+      render();
+    break;
+    case 'top_rated':
+      category = id;
+      render();
+      default: break
+  }
+})
