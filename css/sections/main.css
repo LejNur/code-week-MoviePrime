@@ -18,6 +18,10 @@ main {
 
 .side-container li {
   margin-bottom: 15px;
+  display: flex;
+  align-items: flex-end;
+  align-content: center;
+  gap: .5rem;
 }
 
 .main-container{

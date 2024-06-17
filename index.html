@@ -3,21 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/bdcd5a2ef2.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
   <title>MoviePrime</title>
 </head>
 <body>
+
   <header>
     <nav class="navbar-container">
-      <a href="">Movies</a>
-      <a href="">Series</a>
-      <input type="text" class="search">
+      <a class="movies">Movies</a>
+      <a class="tv-series">Series</a>
+      <div class="input-wrapper">
+        <input type="text" class="search">
+        <button class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
       <select name="language" id="select-language">
         <option value="en">EN</option>
         <option value="it">IT</option>
         <option value="fr">FR</option>
         <option value="es">ES</option>
       </select>
+      <p>Welcome</p>
+      <a href=""><i class="fa-solid fa-user"></i></a>
     </nav>
   </header>
 
@@ -27,11 +34,11 @@
     <aside class="side-container">
       <h3>MoviePrime</h3>
       <ul>
-        <li>Home</li>
-        <li>Favorites</li>
-        <li>Coming Soon</li>
-        <li>Genres</li>
-        <li>LogOut</li>
+        <li><i class="fa-solid fa-house"></i> Home</li>
+        <li><i class="fa-solid fa-heart"></i> Favorites</li>
+        <li><i class="fa-solid fa-calendar"></i> Coming Soon</li>
+        <li class="genres"><i class="fa-solid fa-clapperboard"></i> Genres</li>
+        <li><i class="fa-solid fa-right-from-bracket"></i> LogOut</li>
       </ul>
     </aside>
     <!-- Main Content Container -->

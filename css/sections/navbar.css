@@ -1,0 +1,21 @@
+.navbar-container {
+  width:100%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.search-icon {
+  color: var(--bg-color);
+  position: absolute;
+  right:0;
+  top:0;
+  bottom:-5px;
+  background-color: transparent;
+  border:none;
+}
