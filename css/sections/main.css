@@ -1,0 +1,25 @@
+main {
+  outline:1px solid greenyellow;
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+}
+
+.side-container {
+  height: 100vh;
+  padding:3rem;
+  outline:1px solid red;
+}
+
+.side-container ul {
+  margin:0;
+  padding:0;
+  list-style-type: none;
+}
+
+.side-container li {
+  margin-bottom: 15px;
+}
+
+.main-container{
+  outline:1px solid yellow;
+}
