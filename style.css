@@ -2,7 +2,7 @@
 @import url('css/variables.css');
 @import url('css/typography.css');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-@import url('css/sections/main.css');
+@import url('css/sections/main-container.css');
 @import url('css/sections/navbar.css');
 @import url('css/sections/side-container.css');
 

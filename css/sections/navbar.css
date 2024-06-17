@@ -8,6 +8,10 @@
   gap: 2rem;
 }
 
+.navbar-container a {
+  cursor: pointer;
+}
+
 .input-wrapper {
   position: relative;
 }

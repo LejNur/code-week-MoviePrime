@@ -4,6 +4,7 @@ import { renderCardList } from "./js/renderCardList.js";
 
 const mainContainerEl = document.querySelector(".main-container");
 const genreListEl = document.querySelector(".genres");
+const navbarContainerEl = document.querySelector('.navbar-container');
 
 let page = 1;
 let results = [];
@@ -24,7 +25,6 @@ render();
 //Getting all the movie genres
 const getGenreList = async () => {
   const genreList = await GET("genre/movie/list", 1);
-  console.log(genreList.genres);
   
   genreList.genres.forEach((genre) => {
     const genreBtnEl = document.createElement('button');
@@ -39,6 +39,19 @@ const getGenreList = async () => {
 
 getGenreList();
 
+
+
+console.log(navbarContainerEl);
+
+navbarContainerEl.addEventListener('click', (event) => {
+  if(event.target.tagName === 'A') {
+    const typeID = event.target.id;
+    type = typeID;
+    page = 1 ;
+    render();
+  }
+    
+})
 
   // console.log(await GET("discover/movie", 1));
 
