@@ -64,3 +64,32 @@
   background-color: transparent;
   border:none;
 }
+
+#select-language{
+  padding:8px 16px;
+  border:none;
+  border-radius: 12px;
+  background-color: var(--bg-color);
+  color: var(--text-milk-white-color);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  width: max-content;
+  cursor: pointer;
+}
+
+#select-language option {
+  border:none;
+  font-size: var(--font-size-md);
+  padding:20px;
+}
+
+#select-language:focus {
+  outline:none;
+}
+
+#select-language option:hover {
+  padding-block:1rem;
+  background-color: var(--bg-color);
+
+}
+
