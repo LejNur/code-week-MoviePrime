@@ -4,7 +4,7 @@ export const translations = {
   en_US: {
     movie: "Movies",
     tv: "Series",
-    welcome: "Welcome,",
+    welcome: "Welcome",
     home: "Home",
     favorites: "Favorites",
     upcoming: "Coming Soon",
@@ -64,16 +64,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('[data-translate-key]').forEach(el => {
       const key = el.getAttribute('data-translate-key');
-      if (key in translation) {
-          el.textContent = translation[key];
-      } else {
-        console.log('Error')
+      const iconElement = el.querySelector("i");
+      if (translation[key] && iconElement) {
+        el.innerHTML = ""; 
+        el.appendChild(iconElement); 
+        el.insertAdjacentHTML("beforeend", translation[key]); 
+       
       }
+          
+    
     });
   };
 
   languageSelector.addEventListener('change', updateContent);
 
-  // Initial translation on page load
   updateContent();
 });
