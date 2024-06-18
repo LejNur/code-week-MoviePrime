@@ -39,23 +39,34 @@
       border-radius: 1.75rem;
       color: var(--text-milk-white-color);
       cursor:pointer;
-      transition: all 0.3s ease-in;
+      transition: all ease-in 300ms; 
+    }
+
+.genres button:hover {
+  transform: scale(1.2);
+  border: 3px solid transparent;
+}
+
+.genres button.active {
+  font-weight: 600;
+  transform: scale(1.2);
+  color: var(--neon-color-green);
+  border: 3px solid transparent;
 }
 
 
-.genres button:hover {
-  
+/* .genres button:hover {
   box-shadow: 0 0 8px var(--glow-color), 0 0 25px var(--glow-color), 0 0 45px var(--glow-color);
   
 }
 
 .genres button:hover::before {
   filter: blur(10px);
-}
+} */
 
-.genres button.active {
+/* .genres button.active {
   box-shadow: 0 0 10px var(--active-glow-color), 0 0 20px var(--active-glow-color), 0 0 30px var(--active-glow-color);
-}
+} */
 
 
 
