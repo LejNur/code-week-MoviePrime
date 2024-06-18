@@ -1,6 +1,7 @@
 import { GET } from "./js/get.js";
 import { API_KEY } from "./js/keys.js";
 import { renderCardList } from "./js/renderCardList.js";
+import { translations } from "./js/translations.js";
 
 
 
@@ -19,13 +20,15 @@ let query = "";
 let language = 'en-US'; 
 
 
-selectLanguageEl.addEventListener("change", () => {
+//Change the language of api data
+
+  selectLanguageEl.addEventListener("change", () => {
   language = selectLanguageEl.value;
-  console.log(language);
   render();
 });
 
 
+//Rendering first page
 const render = async () => {
   const endpoint = `${type}/${category}`;
   const response = await GET(endpoint, page, query, language);
@@ -34,7 +37,6 @@ const render = async () => {
 };
 
 render();
-
 
 //Getting all the movie genres
 const getGenreList = async () => {
