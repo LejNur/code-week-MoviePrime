@@ -47,7 +47,6 @@ const getGenreList = async () => {
   genreList.genres.forEach((genre) => {
     const genreBtnEl = document.createElement('button');
     genreBtnEl.className = 'genre';
-    
     genreBtnEl.textContent = genre.name;
     genreBtnEl.id = genre.id;
 
@@ -113,13 +112,25 @@ const searchButtonEl = document.querySelector('.search-icon');
 
 searchButtonEl.addEventListener('click', async () => {
   let inputValue = searchInputEl.value;
+  // Check if input value is empty
+  if (!inputValue) {
+    return; 
+  }
   endpoint = `search/${type}`;
   query = `query=${inputValue}`;
   const search = await GET(endpoint, page, query);
   const searchResult = search.results;
   renderCardList(searchResult, mainContainerEl);
- 
 })
+
+// Disable search button if input is empty
+searchInputEl.addEventListener('input', () => {
+  if (searchInputEl.value.trim() === '') {
+    searchButtonEl.disabled = true;
+  } else {
+    searchButtonEl.disabled = false;
+  }
+});
 
 
 // Page buttons
