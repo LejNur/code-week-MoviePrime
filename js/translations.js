@@ -1,7 +1,7 @@
 //Static text translation
 
 export const translations = {
-  en_US: {
+  "en_US": {
     movie: "Movies",
     tv: "Series",
     welcome: "Welcome",

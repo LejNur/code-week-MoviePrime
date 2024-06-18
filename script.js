@@ -34,14 +34,18 @@ const render = async () => {
 //Change the language of api data
   selectLanguageEl.addEventListener("change", () => {
   language = selectLanguageEl.value;
+  getGenreList();
   render();
 });
 
 
 //Getting all the movie genres
 const getGenreList = async () => {
-  const genreList = await GET("genre/movie/list", 1);
   
+  const genreList = await GET("genre/movie/list", 1, '',  language);
+  
+  genreListEl.innerHTML = "";
+
   genreList.genres.forEach((genre) => {
     const genreBtnEl = document.createElement('button');
     genreBtnEl.className = 'genre';
@@ -55,12 +59,12 @@ const getGenreList = async () => {
       const genreID = event.target.id;
       endpoint = `discover/${type}`;
       query = `with_genres=${genreID}`;
-      const filterGenre = await GET(endpoint, page, query);
+      const filterGenre = await GET(endpoint, page, query, language);
       const filterResult = filterGenre.results;
       renderCardList(filterResult, mainContainerEl);
     })
-    render();
   })
+  render();
   
   };
 
@@ -117,8 +121,6 @@ searchButtonEl.addEventListener('click', async () => {
 
 
 // Page buttons
-
-
 pageButtons.forEach((button) => {
   button.addEventListener('click', async () => {
     if(button.classList.contains('left')) {
@@ -127,11 +129,8 @@ pageButtons.forEach((button) => {
     } else {
       page++;
     }
-
     const newPageResults = await GET(endpoint, page, query)
     console.log(newPageResults);
     renderCardList(newPageResults.results, mainContainerEl)
-    
-    
   });
 }); 
