@@ -14,29 +14,29 @@ const selectLanguageEl = document.querySelector("#select-language");
 
 let page = 1;
 let results = [];
+let endpoint = '';
 let type = "movie";
 let category = "popular";
 let query = "";
-let language = 'en-US'; 
-
-
-//Change the language of api data
-
-  selectLanguageEl.addEventListener("change", () => {
-  language = selectLanguageEl.value;
-  render();
-});
-
+let language = ''; 
 
 //Rendering first page
 const render = async () => {
-  const endpoint = `${type}/${category}`;
+  endpoint = `${type}/${category}`;
   const response = await GET(endpoint, page, query, language);
   results = response.results;
   renderCardList(results, mainContainerEl);
 };
 
-render();
+// render();
+
+
+//Change the language of api data
+  selectLanguageEl.addEventListener("change", () => {
+  language = selectLanguageEl.value;
+  render();
+});
+
 
 //Getting all the movie genres
 const getGenreList = async () => {
@@ -53,13 +53,15 @@ const getGenreList = async () => {
 // Filtering genre
     genreBtnEl.addEventListener('click', async (event) => {
       const genreID = event.target.id;
-      // console.log(genreID);
-      const filterGenre = await GET(`discover/${type}`, page, `with_genres=${genreID}`);
+      endpoint = `discover/${type}`;
+      query = `with_genres=${genreID}`;
+      const filterGenre = await GET(endpoint, page, query);
       const filterResult = filterGenre.results;
       renderCardList(filterResult, mainContainerEl);
     })
+    render();
   })
-
+  
   };
 
 getGenreList();
@@ -78,33 +80,18 @@ navbarContainerEl.addEventListener('click', (event) => {
 })
 
 
-
-
-//Page buttons
-pageButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    
-    if(button.classList.contains('left')) {
-      if(page <= 1) return;
-      page--;
-    } else {
-      page++;
-    }
-    console.log(page);
-    render();
-  });
-});
-
 //Category Filter
 sidebarMenuEl.addEventListener('click', (event) => {
   const id = event.target.id;
   switch(id) {
     case 'upcoming': 
       category = id;
+      page = 1;
       render();
     break;
     case 'top_rated':
       category = id;
+      page = 1;
       render();
       default: break
   }
@@ -118,19 +105,33 @@ const searchButtonEl = document.querySelector('.search-icon');
 
 searchButtonEl.addEventListener('click', async () => {
   let inputValue = searchInputEl.value;
-  const search = await GET(`search/${type}`, page, `query=${inputValue}`);
+  endpoint = `search/${type}`;
+  query = `query=${inputValue}`;
+  const search = await GET(endpoint, page, query);
   const searchResult = search.results;
   renderCardList(searchResult, mainContainerEl);
-  
+ 
 })
 
+// render();
 
 
-// languages
+// Page buttons
 
-// const languages = async () => {
-//   const getLanguages = await GET(`configuration/languages`);
-//   console.log(getLanguages)
-// }
-// // https://api.themoviedb.org/3/configuration/languages
-// languages();
+
+pageButtons.forEach((button) => {
+  button.addEventListener('click', async () => {
+    if(button.classList.contains('left')) {
+      if(page <= 1) return;
+      page--;
+    } else {
+      page++;
+    }
+
+    const newPageResults = await GET(endpoint, page, query)
+    console.log(newPageResults);
+    renderCardList(newPageResults.results, mainContainerEl)
+    
+    
+  });
+}); 

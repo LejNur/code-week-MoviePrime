@@ -19,8 +19,6 @@
   align-items: flex-end;
   align-content: center;
   gap: .5rem;
-  cursor:pointer;
-
 }
 
 .genres {
@@ -37,5 +35,6 @@
   border: 1px solid var(--neon-color-green);
   padding: 8px 12px;
   border-radius: 15px;
+  cursor: pointer;
 }
 
