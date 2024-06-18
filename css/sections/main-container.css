@@ -16,8 +16,8 @@ main {
 }
 
 .card {
-  width:250px;
-  height: 200px;
+  width:220px;
+  height: 123px;
   padding: 10rem 0 2rem;
   border-radius: 15px;
   /* box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px; */
@@ -27,10 +27,10 @@ main {
   background-position: center;
 }
 
-.card-content {
+/* .card-content {
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(5px);
   height: 100%;
   margin-top: 40%;
@@ -38,10 +38,17 @@ main {
   overflow: hidden;
 }
 
+.card-content h3 {
+  font-size: var(--heading-h3-size);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-dark-color);
+}
+
 
 .card-content p {
+  font-size: 
   color: var(--text-milk-white-color);
-}
+} */
 
 .page-buttons  {
   grid-column: 1/-1;

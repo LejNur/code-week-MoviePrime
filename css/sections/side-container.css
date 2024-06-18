@@ -3,23 +3,36 @@
   height: inherit;
   outline: 1px solid red;
   grid-column: 10rem;
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-lg);
 }
 
 .side-container h3 {
   margin-block: 2rem;
+  font-size: var(--heading-h3-size);
+  background: var(--gradient-color);
+  background-clip: text;
+  color: transparent;
 }
 .side-container ul {
   padding: 0;
   list-style-type: none;
 }
 
-.side-container li {
+.side-container li  {
   margin-block: 2rem;
   display: flex;
   align-items: flex-end;
   align-content: center;
   gap: .5rem;
+  transition: all ease-in 300ms;
 }
+
+.side-container li:not(.genres):not([data-translate-key="genres"]):hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
 
 .genres {
   text-align: right;
@@ -55,18 +68,6 @@
 }
 
 
-/* .genres button:hover {
-  box-shadow: 0 0 8px var(--glow-color), 0 0 25px var(--glow-color), 0 0 45px var(--glow-color);
-  
-}
-
-.genres button:hover::before {
-  filter: blur(10px);
-} */
-
-/* .genres button.active {
-  box-shadow: 0 0 10px var(--active-glow-color), 0 0 20px var(--active-glow-color), 0 0 30px var(--active-glow-color);
-} */
 
 
 
