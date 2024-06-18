@@ -41,9 +41,7 @@ const render = async () => {
 
 //Getting all the movie genres
 const getGenreList = async () => {
-  
   const genreList = await GET("genre/movie/list", 1, '',  language);
-  
   genreListEl.innerHTML = "";
 
   genreList.genres.forEach((genre) => {
@@ -117,7 +115,7 @@ searchButtonEl.addEventListener('click', async () => {
  
 })
 
-// render();
+
 
 
 // Page buttons
@@ -129,7 +127,7 @@ pageButtons.forEach((button) => {
     } else {
       page++;
     }
-    const newPageResults = await GET(endpoint, page, query)
+    const newPageResults = await GET(endpoint, page, query, language)
     console.log(newPageResults);
     renderCardList(newPageResults.results, mainContainerEl)
   });
