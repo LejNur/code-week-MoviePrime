@@ -39,8 +39,8 @@ const getGenreList = async () => {
 // Filtering genre
     genreBtnEl.addEventListener('click', async (event) => {
       const genreID = event.target.id;
-      console.log(genreID);
-      const filterGenre = await GET(`discover/${type}`, 1, `with_genres=${genreID}`);
+      // console.log(genreID);
+      const filterGenre = await GET(`discover/${type}`, page, `with_genres=${genreID}`);
       const filterResult = filterGenre.results;
       renderCardList(filterResult, mainContainerEl);
     })
@@ -49,8 +49,6 @@ const getGenreList = async () => {
   };
 
 getGenreList();
-
-
 
 
 //Type Filter
@@ -65,9 +63,7 @@ navbarContainerEl.addEventListener('click', (event) => {
     
 })
 
-  // console.log(await GET("discover/movie", 1));
 
-// movie o series list
 
 
 //Page buttons
@@ -99,3 +95,18 @@ sidebarMenuEl.addEventListener('click', (event) => {
       default: break
   }
 })
+
+
+
+//Search Movie Title
+const searchInputEl = document.querySelector('.search-input');
+const searchButtonEl = document.querySelector('.search-icon');
+
+searchButtonEl.addEventListener('click', async () => {
+  let inputValue = searchInputEl.value;
+  const search = await GET(`search/${type}`, page, `query=${inputValue}`);
+  const searchResult = search.results;
+  renderCardList(searchResult, mainContainerEl);
+  
+})
+
