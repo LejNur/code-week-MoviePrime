@@ -1,5 +1,4 @@
 import { GET } from "./js/get.js";
-import { API_KEY } from "./js/keys.js";
 import { renderCardList } from "./js/renderCardList.js";
 import { translations } from "./js/translations.js";
 
@@ -77,6 +76,12 @@ getGenreList();
 //Type Filter
 navbarContainerEl.addEventListener('click', (event) => {
   if(event.target.tagName === 'A') {
+
+    const links = navbarContainerEl.querySelectorAll("a");
+    links.forEach((link) => link.classList.remove("active"));
+
+    event.target.classList.add("active");
+    event.target.classList.add('active');
     const typeID = event.target.id;
     type = typeID;
     page = 1;
