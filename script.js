@@ -18,7 +18,7 @@ let endpoint = '';
 let type = "movie";
 let category = "popular";
 let query = "";
-let language = ''; 
+let language = ""; 
 
 //Rendering first page
 const render = async () => {
@@ -114,8 +114,6 @@ searchButtonEl.addEventListener('click', async () => {
   renderCardList(searchResult, mainContainerEl);
  
 })
-
-
 
 
 // Page buttons

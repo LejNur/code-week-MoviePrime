@@ -56,6 +56,6 @@ main {
 .page-buttons .page-btn {
   background-color: transparent;
   border:none;
-  color: var(--neon-color-green);
+  color: var(--text-milk-white-color);
   cursor: pointer;
 }
