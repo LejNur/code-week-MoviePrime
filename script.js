@@ -47,6 +47,7 @@ const getGenreList = async () => {
   genreList.genres.forEach((genre) => {
     const genreBtnEl = document.createElement('button');
     genreBtnEl.className = 'genre';
+    
     genreBtnEl.textContent = genre.name;
     genreBtnEl.id = genre.id;
 
@@ -54,12 +55,17 @@ const getGenreList = async () => {
 
 // Filtering genre
     genreBtnEl.addEventListener('click', async (event) => {
+        document.querySelectorAll(".genre").forEach((btn) => btn.classList.remove("active"));
+        genreBtnEl.classList.add("active");
+
       const genreID = event.target.id;
       endpoint = `discover/${type}`;
       query = `with_genres=${genreID}`;
       const filterGenre = await GET(endpoint, page, query, language);
       const filterResult = filterGenre.results;
       renderCardList(filterResult, mainContainerEl);
+
+      
     })
   })
   render();
