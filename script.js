@@ -1,5 +1,7 @@
 import { GET } from "./js/get.js";
+import { API_KEY } from "./js/keys.js";
 import { renderCardList } from "./js/renderCardList.js";
+
 
 
 const mainContainerEl = document.querySelector(".main-container");
@@ -7,16 +9,26 @@ const genreListEl = document.querySelector(".genres");
 const navbarContainerEl = document.querySelector('.navbar-container');
 const pageButtons = document.querySelectorAll(".page-btn");
 const sidebarMenuEl = document.querySelector(".sidebar-menu");
+const selectLanguageEl = document.querySelector("#select-language");
 
 let page = 1;
 let results = [];
 let type = "movie";
 let category = "popular";
 let query = "";
+let language = 'en-US'; 
+
+
+selectLanguageEl.addEventListener("change", () => {
+  language = selectLanguageEl.value;
+  console.log(language);
+  render();
+});
+
 
 const render = async () => {
   const endpoint = `${type}/${category}`;
-  const response = await GET(endpoint, page, query);
+  const response = await GET(endpoint, page, query, language);
   results = response.results;
   renderCardList(results, mainContainerEl);
 };
@@ -110,3 +122,13 @@ searchButtonEl.addEventListener('click', async () => {
   
 })
 
+
+
+// languages
+
+// const languages = async () => {
+//   const getLanguages = await GET(`configuration/languages`);
+//   console.log(getLanguages)
+// }
+// // https://api.themoviedb.org/3/configuration/languages
+// languages();

@@ -19,6 +19,7 @@
   align-items: flex-end;
   align-content: center;
   gap: .5rem;
+  cursor:pointer;
   
 }
 
