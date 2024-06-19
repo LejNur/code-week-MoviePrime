@@ -2,14 +2,13 @@ import { GET } from "./js/get.js";
 import { renderCardList } from "./js/renderCardList.js";
 import { translations } from "./js/translations.js";
 
-
-
 const mainContainerEl = document.querySelector(".main-container");
 const genreListEl = document.querySelector(".genres");
 const navbarContainerEl = document.querySelector('.navbar-container');
 const pageButtons = document.querySelectorAll(".page-btn");
 const sidebarMenuEl = document.querySelector(".sidebar-menu");
 const selectLanguageEl = document.querySelector("#select-language");
+
 
 let page = 1;
 let results = [];
@@ -18,6 +17,7 @@ let type = "movie";
 let category = "popular";
 let query = "";
 let language = ""; 
+let movieID = 0;
 
 //Rendering first page
 const render = async () => {
@@ -25,13 +25,23 @@ const render = async () => {
   const response = await GET(endpoint, page, query, language);
   results = response.results;
   renderCardList(results, mainContainerEl);
+  
 };
 
-// render();
-
+//api.themoviedb.org/3/movie/{movie_id}
+mainContainerEl.addEventListener('click', async (event) => {
+  if(event.target.tagName === 'BUTTON') {
+    movieID = event.target.id;
+    console.log(movieID);
+    endpoint = `${type}/${movieID}`
+    const movieDetails = await GET(endpoint, page)
+    console.log(movieDetails);
+    
+  } 
+})
 
 //Change the language of api data
-  selectLanguageEl.addEventListener("change", () => {
+ selectLanguageEl.addEventListener("change", () => {
   language = selectLanguageEl.value;
   getGenreList();
   render();
@@ -68,7 +78,7 @@ const getGenreList = async () => {
   })
   render();
   
-  };
+};
 
 getGenreList();
 
