@@ -2,6 +2,7 @@ import { GET } from "./js/get.js";
 import { renderCardList } from "./js/renderCardList.js";
 import { translations } from "./js/translations.js";
 
+
 const mainContainerEl = document.querySelector(".main-container");
 const genreListEl = document.querySelector(".genres");
 const navbarContainerEl = document.querySelector('.navbar-container');
@@ -9,36 +10,55 @@ const pageButtons = document.querySelectorAll(".page-btn");
 const sidebarMenuEl = document.querySelector(".sidebar-menu");
 const selectLanguageEl = document.querySelector("#select-language");
 
+const dialogEl = document.querySelector('.dialog');
+
 
 let page = 1;
 let results = [];
-let endpoint = '';
+let endpoint = "";
 let type = "movie";
 let category = "popular";
 let query = "";
 let language = ""; 
 let movieID = 0;
+let movieDetails = {};
+let favoriteMovies = [];
 
 //Rendering first page
 const render = async () => {
   endpoint = `${type}/${category}`;
   const response = await GET(endpoint, page, query, language);
   results = response.results;
-  renderCardList(results, mainContainerEl);
+  renderCardList(results, mainContainerEl,
+     {textContent: 'Add to favorites', classList: 'action add-btn'});
   
 };
 
-//api.themoviedb.org/3/movie/{movie_id}
-mainContainerEl.addEventListener('click', async (event) => {
-  if(event.target.tagName === 'BUTTON') {
+render();
+
+
+mainContainerEl.addEventListener('click', (event) => {
+  if(event.target.classList.contains('action')){
     movieID = event.target.id;
     console.log(movieID);
-    endpoint = `${type}/${movieID}`
-    const movieDetails = await GET(endpoint, page)
-    console.log(movieDetails);
-    
-  } 
+    movieDetails = JSON.parse(event.target.dataset.movie);
+
+    if (event.target.classList.contains('add-btn')) {
+      favoriteMovies.push(movieDetails);
+      event.target.style.display = 'none';
+
+    } else if (event.target.classList.contains('remove-btn')) {
+      favoriteMovies = favoriteMovies.filter((movie) => movie.id !== movieDetails.id);
+
+      renderCardList(favoriteMovies, mainContainerEl, {
+        textContent: "Remove",
+        classList: "action remove-btn",
+      });
+
+    }
+  }
 })
+
 
 //Change the language of api data
  selectLanguageEl.addEventListener("change", () => {
@@ -107,15 +127,15 @@ sidebarMenuEl.addEventListener('click', (event) => {
   const id = event.target.id;
   switch(id) {
     case 'upcoming': 
-      category = id;
-      page = 1;
-      render();
-    break;
     case 'top_rated':
       category = id;
       page = 1;
       render();
-      default: break
+      break;
+    case 'favorites':
+    renderCardList(favoriteMovies, mainContainerEl, {textContent: 'Remove from favorites', classList: 'action remove-btn'});
+    break;
+    default: break
   }
 })
 
