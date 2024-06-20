@@ -1,5 +1,5 @@
 import { GET } from "./js/get.js";
-import { renderCardList } from "./js/renderCardList.js";
+import { renderCard, renderCardList } from "./js/renderCardList.js";
 import { translations } from "./js/translations.js";
 
 
@@ -10,6 +10,7 @@ const navbarContainerEl = document.querySelector('.navbar-container');
 const pageButtons = document.querySelectorAll(".page-btn");
 const sidebarMenuEl = document.querySelector(".sidebar-menu");
 const selectLanguageEl = document.querySelector("#select-language");
+
 
 // const dialogEl = document.querySelector('.dialog');
 
@@ -22,13 +23,13 @@ let endpoint = `${type}/${category}`;
 let query = "";
 let language = ""; 
 let movieID = 0;
-let movieDetails = {};
+let movieObject = {};
 let favoriteMovies = [];
 
 
 //Rendering first page
 const render = async (endpoint, query) => {
-  // endpoint = `${type}/${category}`;
+
   const response = await GET(endpoint, page, query, language);
   results = response.results;
   renderCardList(results, mainContainerEl);
@@ -45,73 +46,40 @@ render(endpoint, query);
 
 
 
-
+let favoriteItems = [];
 
  function favoriteMoviesHandler(button) {
     movieID = button.id;
-    console.log(movieID);
-    movieDetails = JSON.parse(button.dataset.item);
-    console.log(movieDetails);
+    console.log('movie ID', movieID);
+    movieObject = JSON.parse(button.dataset.item);
+    console.log('movie object', movieObject);
 
-   if (button.classList.contains('add-btn')) {
-     favoriteMovies.push(movieDetails);
+    const favoriteButton = document.getElementById(movieID);
+    
+    const movieFound = favoriteItems.find(item => item === movieID) 
+    
+   if(movieFound) {
+    favoriteButton.textContent = 'Add to favorite'
+    favoriteItems = favoriteItems.filter(item => item !== movieID)
+    } else {
+      favoriteButton.textContent = "Remove from favorite";
+      favoriteItems.push(movieID);
+    }
+    console.log('favorite items', favoriteItems);
 
-     button.classList.remove("add-btn");
-     button.classList.add("remove-btn");
 
-     console.log(button.classList);
-    //  button.style.display = "none";
-   } else if (button.classList.contains("remove-btn")) {
-     favoriteMovies = favoriteMovies.filter(
-       (movie) => movie.id !== movieDetails.id
-     );
-     console.log(favoriteMovies);
-    renderCardList(favoriteMovies, mainContainerEl);
-   }}
+    //  renderCardList(favoriteMovies, mainContainerEl);
+   }
 
-//   //  if (button.classList.contains("add-btn")) {
-//   //    favoriteMovies.push(movieDetails);
-//   //    button.classList.remove('add-btn')
-//   //    button.classList.add('remove-btn')
-//   //    button.style.display = "none"; 
-//   //  } else if (button.classList.contains("remove-btn")) {
-//   //    favoriteMovies = favoriteMovies.filter(
-//   //      (movie) => movie.id !== movieDetails.id
-//   //    );
-//   //    renderCardList(favoriteMovies, mainContainerEl);
-//   //  }
-//  }
+
+
+
 
 mainContainerEl.addEventListener('click', (event) => {
-  if(event.target.tagName === 'BUTTON') {
+  if(event.target.tagName  === 'BUTTON') {
     favoriteMoviesHandler(event.target);
-    // console.log(event.target);
   }
-  // favoriteMoviesHandler(event.target)
-  // if(event.target.classList.contains('action')) {
-  //   favoriteMoviesHandler(event.target);
-  // }
-  // if(event.target.classList.contains('action')){
-  //   movieID = event.target.id;
-  //   console.log(movieID);
-  //   movieDetails = JSON.parse(event.target.dataset.movie);
-
-  //   if (event.target.classList.contains('add-btn')) {
-  //     favoriteMovies.push(movieDetails);
-  //     event.target.style.display = 'none';
-
-  //   } else if (event.target.classList.contains('remove-btn')) {
-  //     favoriteMovies = favoriteMovies.filter((movie) => movie.id !== movieDetails.id);
-
-  //     renderCardList(favoriteMovies, mainContainerEl, {
-  //       textContent: "Remove",
-  //       classList: "action remove-btn",
-  //     });
-
-  //   }
-  // }
 })
-
 
 
 
@@ -139,11 +107,10 @@ const getGenreList = async () => {
       endpoint = `discover/${type}`;
       query = `with_genres=${genreID}`;
       
-      // const filterGenre = await GET(endpoint, page, query, language);
-      // const filterResult = filterGenre.results;
+
       
        render(endpoint, query);
-      // renderCardList(filterResult, mainContainerEl);
+
 
     })
   })
@@ -174,7 +141,7 @@ navbarContainerEl.addEventListener('click', (event) => {
     
 })
 
-//top rated series do not exist! debugg tomorrow
+//top rated series do not exist! debugg
 //Category Filter
 sidebarMenuEl.addEventListener('click', (event) => {
   const id = event.target.id;
@@ -187,13 +154,11 @@ sidebarMenuEl.addEventListener('click', (event) => {
       render(endpoint);
       break;
     case 'favorites':
-      renderCardList(favoriteMovies, mainContainerEl);
-    // renderCardList(favoriteMovies, mainContainerEl, {textContent: 'Remove from favorites', classList: 'action remove-btn'});
+      renderCardList(favoriteItems, mainContainerEl);
     break;
     default: break
   }
 })
-
 
 
 //Search Movie Title
@@ -209,9 +174,7 @@ searchButtonEl.addEventListener('click', async () => {
   endpoint = `search/${type}`;
   query = `query=${inputValue}`;
   render(endpoint, query);
-  // const search = await GET(endpoint, page, query);
-  // const searchResult = search.results;
-  // renderCardList(searchResult, mainContainerEl);
+
 })
 
 // Disable search button if input is empty
