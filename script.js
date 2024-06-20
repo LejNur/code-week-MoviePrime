@@ -48,22 +48,25 @@ render(endpoint, query);
 
 let favoriteItems = [];
 
+
  function favoriteMoviesHandler(button) {
-    movieID = button.id;
+    movieID = Number(button.id);
     console.log('movie ID', movieID);
     movieObject = JSON.parse(button.dataset.item);
     console.log('movie object', movieObject);
 
-    const favoriteButton = document.getElementById(movieID);
+   const favoriteButton = document.getElementById(movieID);
     
-    const movieFound = favoriteItems.find(item => item === movieID) 
+    
+    const movieFound = favoriteItems.find(item => Number(item.id) === movieID) 
+
     
    if(movieFound) {
     favoriteButton.textContent = 'Add to favorite'
-    favoriteItems = favoriteItems.filter(item => item !== movieID)
+    favoriteItems = favoriteItems.filter(item => Number(item.id) !== movieID)
     } else {
       favoriteButton.textContent = "Remove from favorite";
-      favoriteItems.push(movieID);
+      favoriteItems.push(movieObject);
     }
     console.log('favorite items', favoriteItems);
 
@@ -71,14 +74,19 @@ let favoriteItems = [];
     //  renderCardList(favoriteMovies, mainContainerEl);
    }
 
-
+  // if(event.target.tagName  === 'BUTTON') {
+  //   favoriteMoviesHandler(event.target);
+  // }
+  //ovo dole
 
 
 
 mainContainerEl.addEventListener('click', (event) => {
-  if(event.target.tagName  === 'BUTTON') {
-    favoriteMoviesHandler(event.target);
+  if(event.target.tagName === 'BUTTON') {
+  favoriteMoviesHandler(event.target);
   }
+ 
+
 })
 
 
@@ -145,18 +153,28 @@ navbarContainerEl.addEventListener('click', (event) => {
 //Category Filter
 sidebarMenuEl.addEventListener('click', (event) => {
   const id = event.target.id;
-  switch(id) {
-    case 'upcoming': 
-    case 'top_rated':
+  switch (id) {
+    case "upcoming":
+    case "top_rated":
       category = id;
       page = 1;
-      endpoint = `${type}/${category}`
+      endpoint = `${type}/${category}`;
       render(endpoint);
       break;
-    case 'favorites':
-      renderCardList(favoriteItems, mainContainerEl);
-    break;
-    default: break
+    case "home":
+      render(endpoint, query);
+      break;
+    case "favorites":
+      mainContainerEl.innerHTML = ''
+      const buttons = mainContainerEl.childNodes;
+      console.log(buttons);
+      
+      // console.log(buttons.firstChild);
+        renderCardList(favoriteItems, mainContainerEl);
+
+      break;
+    default:
+      break;
   }
 })
 

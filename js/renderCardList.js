@@ -46,11 +46,13 @@ export function renderCard(item, container) {
 
       card.className = "card";
       card.style.backgroundImage = `url('https://image.tmdb.org/t/p/w1280${item.poster_path}')`;
+      // card.id = item.id
       card.id = `movie-${item.id}`;
       cardBtn.className ='card-btn';
       cardBtn.textContent = 'Add to favorites';
       
-      cardBtn.id = `button-${item.id}`;
+      cardBtn.id = item.id
+      // cardBtn.id = `button-${item.id}`;
       cardBtn.dataset.item = JSON.stringify(item);
 
 
