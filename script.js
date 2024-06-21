@@ -32,9 +32,10 @@ let favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies")) || [];
 const render = async (endpoint, query) => {
 
   const response = await GET(endpoint, page, query, language);
-  // results = response.results;
+
   results = response.results.map((movie) => ({...movie, isFavorite: favoriteMovies.find((fav) => fav.id === movie.id),
   }));
+  
   renderCardList(results, mainContainerEl);
 };
 
@@ -79,6 +80,7 @@ mainContainerEl.addEventListener("click", (event) => {
     );
     removeFavoriteMovie({ ...movieObj, isFavorite: false });
     renderCardList(results, mainContainerEl);
+    
   }
 });
 
@@ -166,14 +168,12 @@ navbarContainerEl.addEventListener('click', (event) => {
 
     const links = navbarContainerEl.querySelectorAll("a");
     links.forEach((link) => link.classList.remove("active"));
-
     event.target.classList.add("active");
-    
-    // event.target.classList.add('active');
+
     const typeID = event.target.id;
     type = typeID;
     page = 1;
-    // category = 'popular';
+
     endpoint = `${type}/${category}`;
     render(endpoint, query);
   }

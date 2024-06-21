@@ -6,6 +6,8 @@ export function renderCardList(items, container) {
     
     renderCard(item, container)
   })
+
+
   // container.innerHTML = "";
   // movies.forEach((movie) => {
   //   const card = document.createElement("div");
@@ -38,29 +40,37 @@ export function renderCardList(items, container) {
 
 
 export function renderCard(item, container) {
-    
-    
-      const card = document.createElement("div");
-      const cardBtn = document.createElement("button");
+  const card = document.createElement("div");
+  const cardBtn = document.createElement("button");
 
+  const cardContent = document.createElement("div");
+  const cardTitle = document.createElement("h3");
+  const cardInfos = document.createElement("p");
 
-      card.className = "card";
-      card.style.backgroundImage = `url('https://image.tmdb.org/t/p/w1280${item.poster_path}')`;
-   
-      card.id = `movie-${item.id}`;
-      cardBtn.className ='card-btn';
-      cardBtn.textContent = item.isFavorite ? "-" : "+";
+  cardContent.className = 'card-content';
+    cardTitle.textContent = item.title ?? item.name;
+    cardInfos.textContent = (item.release_date ?? item.first_air_date).substring(0,4);
 
-      // cardBtn.id = item.id
-      cardBtn.id = `button-${item.id}`;
-      cardBtn.dataset.item = JSON.stringify(item);
-      
+  card.className = "card";
+  card.style.backgroundImage = `url('https://image.tmdb.org/t/p/w1280${item.poster_path}')`;
 
+  card.id = `movie-${item.id}`;
+  cardBtn.className = "card-btn";
+  cardBtn.textContent = item.isFavorite ? "-" : "+";
 
-      container.append(card);
-      card.appendChild(cardBtn);
+  // cardBtn.id = item.id
+  cardBtn.id = `button-${item.id}`;
+  cardBtn.dataset.item = JSON.stringify(item);
 
+  cardContent.append(cardTitle);
+  cardContent.append(cardInfos);
+
+  card.appendChild(cardBtn);
+  card.appendChild(cardContent);
+  container.append(card);
+  
 }
 
 {/* <i class="fa-solid fa-heart"></i>;filled */}
 {/* <i class="fa-regular fa-heart"></i>;outline */}
+
