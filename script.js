@@ -22,20 +22,24 @@ let category = "popular";
 let endpoint = `${type}/${category}`;
 let query = "";
 let language = ""; 
-let movieID = 0;
-let movieObject = {};
-let favoriteMovies = [];
+// let movieID = 0;
+let movieObj;
+let favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies")) || [];
+
 
 
 //Rendering first page
 const render = async (endpoint, query) => {
 
   const response = await GET(endpoint, page, query, language);
-  results = response.results;
+  // results = response.results;
+  results = response.results.map((movie) => ({...movie, isFavorite: favoriteMovies.find((fav) => fav.id === movie.id),
+  }));
   renderCardList(results, mainContainerEl);
 };
 
-render(endpoint, query);
+window.onload = () => render(endpoint, query);
+
 
 //Change the language of api data
  selectLanguageEl.addEventListener("change", () => {
@@ -44,50 +48,78 @@ render(endpoint, query);
   render(endpoint, query);
 });
 
+//Handling favorite movies
+function favoriteMoviesHandler(movie) {
+  if (favoriteMovies.find((item) => item.id === movie.id)) return;
+  favoriteMovies.push(movie);
+  localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies));
+}
 
+function removeFavoriteMovie(movie) {
+  favoriteMovies = favoriteMovies.filter((item) => item.id !== movie.id);
+  localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies));
+  renderCardList(favoriteMovies, mainContainerEl);
+}
 
-let favoriteItems = [];
-
-
- function favoriteMoviesHandler(button) {
-    movieID = Number(button.id);
-    console.log('movie ID', movieID);
-    movieObject = JSON.parse(button.dataset.item);
-    console.log('movie object', movieObject);
-
-   const favoriteButton = document.getElementById(movieID);
+mainContainerEl.addEventListener("click", (event) => {
+  if (event.target.tagName === "BUTTON") {
+    movieObj = JSON.parse(event.target.dataset.item);
     
-    
-    const movieFound = favoriteItems.find(item => Number(item.id) === movieID) 
-
-    
-   if(movieFound) {
-    favoriteButton.textContent = 'Add to favorite'
-    favoriteItems = favoriteItems.filter(item => Number(item.id) !== movieID)
-    } else {
-      favoriteButton.textContent = "Remove from favorite";
-      favoriteItems.push(movieObject);
-    }
-    console.log('favorite items', favoriteItems);
-
-
-    //  renderCardList(favoriteMovies, mainContainerEl);
-   }
-
-  // if(event.target.tagName  === 'BUTTON') {
-  //   favoriteMoviesHandler(event.target);
-  // }
-  //ovo dole
-
-
-
-mainContainerEl.addEventListener('click', (event) => {
-  if(event.target.tagName === 'BUTTON') {
-  favoriteMoviesHandler(event.target);
+    results = results.map((movie) =>
+      movie.id === movieObj.id ? { ...movie, isFavorite: true } : movie
+    );
+    favoriteMoviesHandler({ ...movieObj, isFavorite: true });
+    renderCardList(results, mainContainerEl);
   }
+
+  if (event.target.textContent === "Remove from favorites") {
+    movieObj = JSON.parse(event.target.dataset.item);
+    results = results.map((movie) =>
+      movie.id === movieObj.id ? { ...movie, isFavorite: false } : movie
+    );
+    removeFavoriteMovie({ ...movieObj, isFavorite: false });
+    // renderCardList(results, mainContainerEl);
+  }
+});
+
+
+//Moja 
+// let favoriteItems = [];
+//  function favoriteMoviesHandler(button) {
+//    movieID = Number(button.id);
+//    console.log("movie ID", movieID);
+//    movieObject = JSON.parse(button.dataset.item);
+//    console.log("movie object", movieObject);
+
+//    const favoriteButton = document.getElementById(movieID);
+
+//    const movieFound = favoriteItems.find((item) => Number(item.id) === movieID);
+
+//    if (movieFound) {
+//      favoriteButton.textContent = "Add to favorites";
+//      favoriteItems = favoriteItems.filter(
+//        (item) => Number(item.id) !== movieID
+//      );
+//    }
+//     else {
+//       favoriteButton.textContent = "Remove from favorite";
+//       favoriteItems.push(movieObject);
+//     }
+//    console.log("favorite items", favoriteItems);
+   
+
+//    //  renderCardList(favoriteMovies, mainContainerEl);
+//  }
+
+
+
+// mainContainerEl.addEventListener('click', (event) => {
+//   if(event.target.tagName === 'BUTTON') {
+//     favoriteMoviesHandler(event.target);
+//   }
  
 
-})
+// })
 
 
 
@@ -165,13 +197,7 @@ sidebarMenuEl.addEventListener('click', (event) => {
       render(endpoint, query);
       break;
     case "favorites":
-      mainContainerEl.innerHTML = ''
-      const buttons = mainContainerEl.childNodes;
-      console.log(buttons);
-      
-      // console.log(buttons.firstChild);
-        renderCardList(favoriteItems, mainContainerEl);
-
+      renderCardList(favoriteMovies, mainContainerEl);
       break;
     default:
       break;
