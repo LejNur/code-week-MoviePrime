@@ -1,6 +1,7 @@
 import { GET } from "./js/get.js";
 import { renderCard, renderCardList } from "./js/renderCardList.js";
 import { translations } from "./js/translations.js";
+import { singleMovie } from "./js/singleMovie.js";
 
 
 
@@ -20,32 +21,32 @@ let category = "popular";
 let endpoint = `${type}/${category}`;
 let query = "";
 let language = ""; 
-// let movieID = 0;
 let movieObj;
 let favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies")) || [];
 
 
 
 //Rendering first page
-const render = async (endpoint, query) => {
+  const render = async (endpoint, query) => {
 
-  const response = await GET(endpoint, page, query, language);
+    const response = await GET(endpoint, page, query, language);
 
-  results = response.results.map((movie) => ({...movie, isFavorite: favoriteMovies.find((fav) => fav.id === movie.id),
-  }));
+    results = response.results.map((movie) => ({...movie, isFavorite: favoriteMovies.find((fav) => fav.id === movie.id),
+    }));
+    // console.log(results);
 
-  renderCardList(results, mainContainerEl);
-};
+    renderCardList(results, mainContainerEl);
+  };
 
-window.onload = () => render(endpoint, query);
+  window.onload = () => render(endpoint, query);
 
 
 //Change the language of api data
- selectLanguageEl.addEventListener("change", () => {
-  language = selectLanguageEl.value;
-  getGenreList();
-  render(endpoint, query);
-});
+  selectLanguageEl.addEventListener("change", () => {
+    language = selectLanguageEl.value;
+    getGenreList();
+    render(endpoint, query);
+  });
 
 
 
@@ -56,7 +57,6 @@ window.onload = () => render(endpoint, query);
     localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies));
   }
 
- 
 
   function removeFavoriteMovie(movie) {
     favoriteMovies = favoriteMovies.filter((item) => item.id !== movie.id);
@@ -67,7 +67,7 @@ window.onload = () => render(endpoint, query);
   mainContainerEl.addEventListener("click", (event) => {
     if (event.target.tagName === "BUTTON") {
 
-      //open dialog on add to favorites and close it on setTimeout
+//open dialog on add to favorites and close it on setTimeout
       if(event.target.textContent === '+') {
         dialogEl.showModal();
         dialogEl.textContent = 'Movie added to your favorites!';
@@ -76,9 +76,7 @@ window.onload = () => render(endpoint, query);
         }, 2000)
       }
 
-
       movieObj = JSON.parse(event.target.dataset.item);
-
       results = results.map((movie) =>
         movie.id === movieObj.id ? { ...movie, isFavorite: true } : movie
       );
@@ -87,7 +85,7 @@ window.onload = () => render(endpoint, query);
       renderCardList(results, mainContainerEl);
 
 
-      //minus button
+//remove button
       if (event.target.textContent === "-") {
 
  //closing modal with control       
@@ -109,40 +107,28 @@ window.onload = () => render(endpoint, query);
         dialogEl.append(buttonContainer);
 
 
+//button Yes
         buttonYes.addEventListener('click', () => {
           dialogEl.textContent = "Movie removed from your list of favorites!";
 
-                  movieObj = JSON.parse(event.target.dataset.item);
-                  results = results.map((movie) =>
-                    movie.id === movieObj.id
-                      ? { ...movie, isFavorite: false }
-                      : movie
-                  );
-                  removeFavoriteMovie({ ...movieObj, isFavorite: false });
-                  renderCardList(results, mainContainerEl);
-                  
+          movieObj = JSON.parse(event.target.dataset.item);
+          results = results.map((movie) =>
+            movie.id === movieObj.id ? { ...movie, isFavorite: false } : movie
+          );
+
+          removeFavoriteMovie({ ...movieObj, isFavorite: false });
+          renderCardList(results, mainContainerEl);
+
           setTimeout(() => {
             dialogEl.close();
           }, 2000);
         })
 
 
+  //button No
         buttonNo.addEventListener('click', () => {
           dialogEl.close();
         })
-
-        // dialogEl.addEventListener('click', (event) => {
-        //   if(event.target.textContent=== 'Yes') {
-        //     dialogEl.textContent = 'Movie removed from your list of favorites!';
-        //     setTimeout(()=> {
-        //       dialogEl.close();
-        //     }, 2000)
-        //   } else if ( event.target.textContent === 'No') {
-        //       dialogEl.close();
-        //   }
-        // })
-
-
       }
     }
   }); 
@@ -256,7 +242,7 @@ sidebarMenuEl.addEventListener('click', (event) => {
       render(endpoint);
       break;
     case "home":
-      render(endpoint, query);
+      render('movie/popular', query);
       break;
     case "favorites":
       
@@ -323,3 +309,28 @@ pageButtons.forEach((button) => {
 
   });
 }); 
+
+
+
+//single movie function
+// mainContainerEl.addEventListener('click', async (event) => {
+//   let card = event.target;
+//   let cardID = Number(event.target.id);
+//   if(card.className === 'card') {
+//     console.log('card-----', event.target, 'id card-----', cardID);
+    
+//     const resultat = await GET(`${type}/${cardID}`,page, query, language);
+//     console.log(resultat);
+//     // singleMovie(card.dataset, mainContainerEl);
+
+//   }
+// })
+
+
+//hamburger menu 
+const burgerBtn = document.querySelector('.burger-btn');
+console.log(burgerBtn);
+
+burgerBtn.addEventListener('click', () => {
+  sidebarMenuEl.classList.toggle('show');
+})

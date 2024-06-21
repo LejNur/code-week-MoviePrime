@@ -48,13 +48,15 @@ export function renderCard(item, container) {
   const cardInfos = document.createElement("p");
 
   cardContent.className = 'card-content';
-    cardTitle.textContent = item.title ?? item.name;
-    cardInfos.textContent = (item.release_date ?? item.first_air_date).substring(0,4);
+  cardTitle.textContent = item.title ?? item.name;
+  cardInfos.textContent = (item.release_date ?? item.first_air_date).substring(0,4);
+
 
   card.className = "card";
   card.style.backgroundImage = `url('https://image.tmdb.org/t/p/w1280${item.poster_path}')`;
 
-  card.id = `movie-${item.id}`;
+  card.id = item.id;
+  // card.id = `movie-${item.id}`;
   cardBtn.className = "card-btn";
   cardBtn.textContent = item.isFavorite ? "-" : "+";
 

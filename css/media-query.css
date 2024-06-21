@@ -1,0 +1,101 @@
+/* Smartphone o piccoli Tablet */
+/* @media screen and (max-width: 480px) */
+
+/* Tablet in modalitÃ  verticale */
+ /* @media all and (min-width: 481px) and (max-width: 736px) */
+
+
+/* Tablet in modalitÃ  orizzontale */
+/* @media all and (min-width: 737px) and (max-width: 1279px) */
+
+/* LAPTOP */
+/* @media all and (min-width: 738px) and (max-width: 1600px)
+
+/* DESKTOP LARGE*/
+/* @media screen and (min-width: 1900px) */
+
+@media screen and (max-width: 480px) {
+
+  .navbar-container {
+    padding:0;
+    flex-wrap: wrap;
+    /* flex-direction: row-reverse; */
+  }
+
+  /* .navbar-container p {
+    display:none;
+  } */
+
+  main {
+    flex-direction: column;
+    
+  }
+
+  .main-container {
+    width: 100%;
+  }
+
+  .sidebar-menu {
+    display:none;
+  }
+
+
+  .page-buttons {
+    width: 100%;
+    padding: 0 !important;
+    margin-block: 1.5rem;
+    font-size: var(--font-size-sm);
+  }
+
+  .side-container {
+    width: 100%;
+    padding: 1rem 0 !important;  
+  }
+
+  .logo-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:1.5rem;
+  }
+
+  .logo-container .burger-btn {
+    border:none;
+    background: var(--gradient-color);
+    background-clip: text;
+    color: transparent;
+    padding-top:1.5px ;
+    font-size: var(--font-size-xxl);
+
+  }
+
+/* //moras burger button staviti na display:none na velikim ekranima */
+
+  .show {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+     
+  }
+
+  .sidebar-menu li.genres {
+    text-align: center;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-wrap:wrap;
+    gap:1rem;
+    padding-inline: 2rem;
+  }
+
+  .sidebar-menu li.genres button {
+    padding:1rem 1.5rem;
+    font-size: var(--font-size-md);
+  }
+
+
+
+
+}
