@@ -123,7 +123,6 @@ mainContainerEl.addEventListener("click", (event) => {
 
 
 
-
 //Getting all the movie genres
 const getGenreList = async () => {
   const genreList = await GET("genre/movie/list", 1, '',  language);
@@ -209,6 +208,7 @@ sidebarMenuEl.addEventListener('click', (event) => {
 const searchInputEl = document.querySelector('.search-input');
 const searchButtonEl = document.querySelector('.search-icon');
 
+//Search on button click
 searchButtonEl.addEventListener('click', async () => {
   let inputValue = searchInputEl.value;
   // Check if input value is empty
@@ -218,7 +218,6 @@ searchButtonEl.addEventListener('click', async () => {
   endpoint = `search/${type}`;
   query = `query=${inputValue}`;
   render(endpoint, query);
-
 })
 
 // Disable search button if input is empty
@@ -230,18 +229,32 @@ searchInputEl.addEventListener('input', () => {
   }
 });
 
+//Search on Enter keyup
+searchInputEl.addEventListener("keyup", (event) => {
+  if (event.key === "Enter") {
+      let inputValue = searchInputEl.value;
+      // Check if input value is empty
+      if (!inputValue) {
+        return;
+      }
+      endpoint = `search/${type}`;
+      query = `query=${inputValue}`;
+      render(endpoint, query);
+  } return;
+});
 
-// // Page buttons
-// pageButtons.forEach((button) => {
-//   button.addEventListener('click', async () => {
-//     if(button.classList.contains('left')) {
-//       if(page <= 1) return;
-//       page--;
-//     } else {
-//       page++;
-//     }
-//     const newPageResults = await GET(endpoint, page, query, language)
-//     console.log(newPageResults);
-//     await render();
-//   });
-// }); 
+
+
+// Pagination buttons
+pageButtons.forEach((button) => {
+  button.addEventListener('click', async () => {
+    if(button.classList.contains('left')) {
+      if(page <= 1) return;
+      page--;
+    } else {
+      page++;
+    }
+    render(endpoint, query);
+
+  });
+}); 

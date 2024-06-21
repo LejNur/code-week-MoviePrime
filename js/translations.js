@@ -4,7 +4,7 @@ export const translations = {
   "en_US": {
     movie: "Movies",
     tv: "Series",
-    welcome: "Welcome",
+    welcome: " Welcome",
     home: "Home",
     favorites: "Favorites",
     upcoming: "Coming Soon",
@@ -17,7 +17,7 @@ export const translations = {
   "it-IT": {
     movie: "Film",
     tv: "Serie",
-    welcome: "Benvenuto",
+    welcome: " Benvenuto",
     home: "Home",
     favorites: "Preferiti",
     upcoming: "Prossimamente",
@@ -30,7 +30,7 @@ export const translations = {
   "fr-FR": {
     movie: "Films",
     tv: "Séries",
-    welcome: "Bienvenue, ",
+    welcome: " Bienvenue",
     home: "Accueil",
     favorites: "Favoris",
     upcoming: "À venir",
@@ -43,7 +43,7 @@ export const translations = {
   "es-ES": {
     movie: "Películas",
     tv: "Series",
-    welcome: "Bienvenido, ",
+    welcome: " Bienvenido",
     home: "Inicio",
     favorites: "Favoritos",
     upcoming: "Próximamente",

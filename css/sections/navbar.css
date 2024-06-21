@@ -54,6 +54,15 @@
   font-weight: var(--font-weight-normal);
 }
 
+.search-input:focus{
+  outline:none;
+}
+
+.search-input:focus + .search-icon{
+  font-size: var(--font-size-xl);
+  transition: all ease-in-out 300ms;
+}
+
 .search-icon {
   color: var(--text-milk-white-color);
   font-size: var(--font-size-lg);
