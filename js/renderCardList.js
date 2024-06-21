@@ -62,12 +62,16 @@ export function renderCard(item, container) {
   cardBtn.id = `button-${item.id}`;
   cardBtn.dataset.item = JSON.stringify(item);
 
-  cardContent.append(cardTitle);
-  cardContent.append(cardInfos);
+  cardContent.appendChild(cardBtn);
+  cardContent.appendChild(cardTitle);
+  cardContent.appendChild(cardInfos);
 
-  card.appendChild(cardBtn);
+
+  // card.appendChild(cardBtn);
   card.appendChild(cardContent);
-  container.append(card);
+  
+  container.appendChild(card);
+  
   
 }
 
