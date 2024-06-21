@@ -9,64 +9,62 @@
   <title>MoviePrime</title>
 </head>
 <body>
-
+<section class="wrapper">
+<!-- Logo Navbar -->
+<!-- Sidebar -->
   <header>
-
+        <div class="side-container">
+          <div class="logo-container">
+            <h3>MoviePrime</h3>
+            <button class="burger-btn">
+              <i class="fa fa-bars"></i>
+            </button>
+          </div>
+        
+          <ul class="sidebar-menu">
+            <li id="home" data-translate-key="home"><i class="fa-solid fa-house"></i>Home</li>
+            <li id="favorites" data-translate-key="favorites"><i class="fa-solid fa-heart"></i>Favorites</li>
+            <li id="upcoming" data-translate-key="upcoming"><i class="fa-solid fa-calendar"></i>Upcoming</li>
+            <li id="top_rated" data-translate-key="topRated"><i class="fa-solid fa-star"></i>Top rated</li>
+            <li data-translate-key="genres"><i class="fa-solid fa-clapperboard"></i>Genres</li>
+            <li class="genres"></li>
+            <li data-translate-key="logout"><i class="fa-solid fa-right-from-bracket"></i>Logout</li>
+          </ul>
+        </div>
   </header>
 
-  <!-- Content -->
+
+<!-- Content -->
   <main>
-        <!-- Navbar -->
-        <nav class="navbar-container">
-          <a id="movie" data-translate-key="movie">Movies</a>
-          <a id="tv" data-translate-key="tv">Series</a>
-          <div class="input-wrapper">
-            <input type="text" class="search-input">
-            <button class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></button>
-          </div>
-          <select name="language" id="select-language">
-            <option value="en_US">EN</option>
-            <option value="it-IT">IT</option>
-            <option value="fr-FR">FR</option>
-            <option value="es-ES">ES</option>
-          </select>
-          <p data-translate-key="welcome"> <i class="fa-solid fa-user"></i> Welcome</p>
-        </nav>
-    <!-- Sidebar -->
-    <div class="side-container">
-
-      <div class="logo-container">
-        <h3>MoviePrime</h3>
-        <button class="burger-btn">
-          <i class="fa fa-bars"></i>
-        </button>
+    <nav class="navbar-container">
+      <a id="movie" data-translate-key="movie">Movies</a>
+      <a id="tv" data-translate-key="tv">Series</a>
+      <div class="input-wrapper">
+        <input type="text" class="search-input">
+        <button class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></button>
       </div>
+      <select name="language" id="select-language">
+        <option value="en_US">EN</option>
+        <option value="it-IT">IT</option>
+        <option value="fr-FR">FR</option>
+        <option value="es-ES">ES</option>
+      </select>
+      <p data-translate-key="welcome"> <i class="fa-solid fa-user"></i> Welcome</p>
+    </nav>
 
-      <ul class="sidebar-menu">
-        <li id="home" data-translate-key="home"><i class="fa-solid fa-house"></i>Home</li>
-        <li id="favorites" data-translate-key="favorites"><i class="fa-solid fa-heart" ></i>Favorites</li>
-        <li id="upcoming"  data-translate-key="upcoming"><i class="fa-solid fa-calendar"></i>Upcoming</li>
-        <li id="top_rated" data-translate-key="topRated"><i class="fa-solid fa-star" ></i>Top rated</li>
-        <li data-translate-key="genres"><i class="fa-solid fa-clapperboard" ></i>Genres</li>
-        <li class="genres"></li>
-        <li  data-translate-key="logout"><i class="fa-solid fa-right-from-bracket"></i>Logout</li>
-      </ul>
-
-      
-    </div>
-    <!-- Main Content Container -->
+<!-- Main Content Container -->
     <section class="main-container"></section>
 
-    <!-- Page Buttons Section -->
+<!-- Page Buttons Section -->
     <div class="page-buttons">
       <button class="page-btn left"><i class="fa-solid fa-chevron-left fa-3x"></i></button>
       <button class="page-btn right"><i class="fa-solid fa-chevron-right fa-3x"></i></button>
     </div>
   </main>
 
-  <dialog class="dialog">
-    <!-- <button class="close-btn"><i class="fa-solid fa-xmark"></i></button> -->
-  </dialog>
+  <!-- Dialog  -->
+  <dialog class="dialog"></dialog>
   <script src="script.js" type="module"></script>
+  </section>
 </body>
 </html>

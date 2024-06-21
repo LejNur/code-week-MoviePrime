@@ -16,7 +16,7 @@
 
 @media screen and (max-width: 480px) {
 
-  .navbar-container {
+  main .navbar-container {
     padding:0;
     flex-wrap: wrap;
     /* flex-direction: row-reverse; */
@@ -25,7 +25,9 @@
   /* .navbar-container p {
     display:none;
   } */
-
+  .wrapper {
+    flex-direction: column;
+  }
   main {
     flex-direction: column;
     
