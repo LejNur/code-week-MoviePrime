@@ -10,9 +10,7 @@ const navbarContainerEl = document.querySelector('.navbar-container');
 const pageButtons = document.querySelectorAll(".page-btn");
 const sidebarMenuEl = document.querySelector(".sidebar-menu");
 const selectLanguageEl = document.querySelector("#select-language");
-
-
-// const dialogEl = document.querySelector('.dialog');
+const dialogEl = document.querySelector('.dialog');
 
 
 let page = 1;
@@ -49,12 +47,16 @@ window.onload = () => render(endpoint, query);
   render(endpoint, query);
 });
 
+
+
 //Handling favorite movies
   function favoriteMoviesHandler(movie) {
     if (favoriteMovies.find((item) => item.id === movie.id)) return;
     favoriteMovies.push(movie);
     localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies));
   }
+
+ 
 
   function removeFavoriteMovie(movie) {
     favoriteMovies = favoriteMovies.filter((item) => item.id !== movie.id);
@@ -64,6 +66,17 @@ window.onload = () => render(endpoint, query);
 
   mainContainerEl.addEventListener("click", (event) => {
     if (event.target.tagName === "BUTTON") {
+
+      //open dialog on add to favorites and close it on setTimeout
+      if(event.target.textContent === '+') {
+        dialogEl.showModal();
+        dialogEl.textContent = 'Movie added to your favorites!';
+        setTimeout(() => {
+          dialogEl.close()
+        }, 2000)
+      }
+
+
       movieObj = JSON.parse(event.target.dataset.item);
 
       results = results.map((movie) =>
@@ -73,13 +86,63 @@ window.onload = () => render(endpoint, query);
       favoriteMoviesHandler({ ...movieObj, isFavorite: true });
       renderCardList(results, mainContainerEl);
 
+
+      //minus button
       if (event.target.textContent === "-") {
-        movieObj = JSON.parse(event.target.dataset.item);
-        results = results.map((movie) =>
-          movie.id === movieObj.id ? { ...movie, isFavorite: false } : movie
-        );
-        removeFavoriteMovie({ ...movieObj, isFavorite: false });
-        renderCardList(results, mainContainerEl);
+
+ //closing modal with control       
+        dialogEl.showModal();
+        dialogEl.textContent = 'Are you sure you want to remove the movie from favorites?';
+        const buttonContainer = document.createElement('div');
+        const buttonYes = document.createElement('button');
+        const buttonNo = document.createElement('button');
+
+        buttonContainer.className = 'button-container';
+        buttonYes.className = 'dialog-btn-yes';
+        buttonNo.className = 'dialog-btn-no';
+
+        buttonYes.textContent = 'Yes';
+        buttonNo.textContent = 'No';
+
+        buttonContainer.appendChild(buttonYes);
+        buttonContainer.appendChild(buttonNo);
+        dialogEl.append(buttonContainer);
+
+
+        buttonYes.addEventListener('click', () => {
+          dialogEl.textContent = "Movie removed from your list of favorites!";
+
+                  movieObj = JSON.parse(event.target.dataset.item);
+                  results = results.map((movie) =>
+                    movie.id === movieObj.id
+                      ? { ...movie, isFavorite: false }
+                      : movie
+                  );
+                  removeFavoriteMovie({ ...movieObj, isFavorite: false });
+                  renderCardList(results, mainContainerEl);
+                  
+          setTimeout(() => {
+            dialogEl.close();
+          }, 2000);
+        })
+
+
+        buttonNo.addEventListener('click', () => {
+          dialogEl.close();
+        })
+
+        // dialogEl.addEventListener('click', (event) => {
+        //   if(event.target.textContent=== 'Yes') {
+        //     dialogEl.textContent = 'Movie removed from your list of favorites!';
+        //     setTimeout(()=> {
+        //       dialogEl.close();
+        //     }, 2000)
+        //   } else if ( event.target.textContent === 'No') {
+        //       dialogEl.close();
+        //   }
+        // })
+
+
       }
     }
   }); 
@@ -196,8 +259,8 @@ sidebarMenuEl.addEventListener('click', (event) => {
       render(endpoint, query);
       break;
     case "favorites":
+      
       renderCardList(favoriteMovies, mainContainerEl);
-      console.log(favoriteMovies);
       break;
     default:
       break;
@@ -220,6 +283,7 @@ searchButtonEl.addEventListener('click', async () => {
   query = `query=${inputValue}`;
   render(endpoint, query);
 })
+
 
 // Disable search button if input is empty
 searchInputEl.addEventListener('input', () => {

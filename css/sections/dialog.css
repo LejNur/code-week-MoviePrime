@@ -1,0 +1,47 @@
+dialog {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(28px);
+  color: var(--text-dark-color);
+  border: none;
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+dialog::backdrop {
+  background-color: rgba(23, 23, 25, 0.7) ;
+
+}
+
+.button-container {
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  gap: 16px;
+  padding-top:1rem;
+}
+
+.button-container button {
+  padding: 12px 40px;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-normal);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  color: var(--text-dark-color);
+  transition: all ease-in-out 200ms;
+}
+
+.button-container button:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+}
+
+.dialog-btn-yes {
+  box-sizing: border-box;
+  border:3px solid var(--neon-color-green);
+}
+
+.dialog-btn-no {
+  box-sizing: border-box;
+  border: 3px solid var(--neon-color-pink);
+}
+
