@@ -49,14 +49,18 @@ export function renderCard(item, container) {
    
       card.id = `movie-${item.id}`;
       cardBtn.className ='card-btn';
-      cardBtn.textContent = item.isFavorite ? "Remove from favorites" : "Add to favorites";
+      cardBtn.textContent = item.isFavorite ? "-" : "+";
 
       // cardBtn.id = item.id
       cardBtn.id = `button-${item.id}`;
       cardBtn.dataset.item = JSON.stringify(item);
+      
 
 
       container.append(card);
       card.appendChild(cardBtn);
 
 }
+
+{/* <i class="fa-solid fa-heart"></i>;filled */}
+{/* <i class="fa-regular fa-heart"></i>;outline */}

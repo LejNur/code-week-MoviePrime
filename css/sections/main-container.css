@@ -20,11 +20,34 @@ main {
   height: 123px;
   padding: 10rem 0 2rem;
   border-radius: 15px;
-  /* box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px; */
+  box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  position: relative;
+}
+
+.card-btn {
+  position:absolute;
+  top:0px;
+  right:0;
+  background: var(--text-milk-white-color) ;
+  border:none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:6px 12px;
+  font-size: 24px;
+  color: var(--text-dark-color);
+  transition: all ease 500ms;
+}
+
+
+.card-btn:hover {
+  transform: scale(1.2);
+  cursor: pointer;
 }
 
 /* .card-content {

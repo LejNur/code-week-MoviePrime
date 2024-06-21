@@ -72,13 +72,13 @@ mainContainerEl.addEventListener("click", (event) => {
     renderCardList(results, mainContainerEl);
   }
 
-  if (event.target.textContent === "Remove from favorites") {
+  if (event.target.textContent === "-") {
     movieObj = JSON.parse(event.target.dataset.item);
     results = results.map((movie) =>
       movie.id === movieObj.id ? { ...movie, isFavorite: false } : movie
     );
     removeFavoriteMovie({ ...movieObj, isFavorite: false });
-    // renderCardList(results, mainContainerEl);
+    renderCardList(results, mainContainerEl);
   }
 });
 
