@@ -1,7 +1,7 @@
 .side-container {
   padding: 3rem;
-  height: inherit;
-  outline: 1px solid red;
+  height:100%;
+  /* outline: 1px solid red; */
   font-weight: var(--font-weight-normal);
   font-size: var(--font-size-lg);
 }

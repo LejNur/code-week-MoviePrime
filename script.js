@@ -313,19 +313,19 @@ pageButtons.forEach((button) => {
 
 
 
-//single movie function
-// mainContainerEl.addEventListener('click', async (event) => {
-//   let card = event.target;
-//   let cardID = Number(event.target.id);
-//   if(card.className === 'card') {
-//     console.log('card-----', event.target, 'id card-----', cardID);
+// single movie function
+mainContainerEl.addEventListener('click', async (event) => {
+  let card = event.target;
+  let cardID = Number(event.target.id);
+  if(card.className === 'card') {
+    console.log('card-----', event.target, 'id card-----', cardID);
+        
+    const result = await GET(`${type}/${cardID}`,page, query, language);
     
-//     const resultat = await GET(`${type}/${cardID}`,page, query, language);
-//     console.log(resultat);
-//     // singleMovie(card.dataset, mainContainerEl);
-
-//   }
-// })
+    singleMovie(result, mainContainerEl);
+    console.log(result);
+  }
+})
 
 
 //hamburger menu 
