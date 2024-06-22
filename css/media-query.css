@@ -16,43 +16,77 @@
 
 @media screen and (max-width: 480px) {
 
-  main .navbar-container {
-    padding:0;
-    flex-wrap: wrap;
-    /* flex-direction: row-reverse; */
-  }
-
-  /* .navbar-container p {
-    display:none;
-  } */
   .wrapper {
-    flex-direction: column;
-  }
+      flex-direction: column;
+    }
+    
   main {
     flex-direction: column;
     
   }
 
-  .main-container {
+  .side-container {
     width: 100%;
+    padding: 0.2rem 0px !important;
+  }
+    
+  .sidebar-menu {
+    display: none;
+    padding:1rem;
   }
 
-  .sidebar-menu {
-    display:none;
+  .show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
   }
+
+  .main-container {
+    width: 100%;
+
+  } 
+
+  main .navbar-container {
+
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    padding: 0.8rem 0 !important;
+    
+  }
+
+  main .navbar-container a {
+    font-size: var(--font-size-md);
+  }
+
+
+ main #select-language {
+    padding: 4px;
+  }
+
+
+main .card {
+  width: 70%;
+  padding: 10rem 0 5rem;
+  box-shadow: rgba(255, 255, 255, 0.35) 0px 0px 10px;
+  background-position: center center;
+  transition: transform 500ms ease;
+}
+
+main .card .card-btn {
+    padding: 8px 14px;
+}
+
 
 
   .page-buttons {
     width: 100%;
-    padding: 0 !important;
-    margin-block: 1.5rem;
+    padding: 0px !important;
     font-size: var(--font-size-sm);
   }
 
-  .side-container {
-    width: 100%;
-    padding: 1rem 0 !important;  
-  }
+
 
   .logo-container {
     display:flex;
@@ -62,6 +96,7 @@
   }
 
   .logo-container .burger-btn {
+    display:block;
     border:none;
     background: var(--gradient-color);
     background-clip: text;
@@ -73,13 +108,6 @@
 
 /* //moras burger button staviti na display:none na velikim ekranima */
 
-  .show {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-     
-  }
 
   .sidebar-menu li.genres {
     text-align: center;
@@ -98,6 +126,158 @@
   }
 
 
+}
+
+@media screen and (min-width: 481px) and (max-width:768px) {
+  .wrapper {
+      flex-direction: column;
+    }
+  
+    main {
+      flex-direction: column;
+    }
+  
+    .side-container {
+      width: 100%;
+      padding: 0.2rem 0px !important;
+    }
+  
+    .sidebar-menu {
+      display: none;
+      padding: 1rem;
+    }
+  
+    .show {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+     
+    }
+
+    .burger-btn {
+      display:block;
+    }
+  
+    .main-container {
+      width: 100%;
+  
+    }
+  
+    main .navbar-container {
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 0.8rem 0 !important;
+  
+    }
+  
+    main .navbar-container a {
+      font-size: var(--font-size-xl);
+    }
+  
+  
+    main #select-language {
+      padding: 4px;
+    }
+  
+  
+    main .card {
+      width: 70%;
+      padding: 10rem 0 15%;
+      box-shadow: rgba(255, 255, 255, 0.35) 0px 0px 10px;
+      background-position: center center;
+      transition: transform 500ms ease;
+    }
+  
+    main .card .card-btn {
+      padding: 8px 14px;
+    }
+  
+    main .main-container .card-content {
+    padding: 0.9rem 0.7rem !important;
+  }
+
+  
+    .page-buttons {
+      width: 100%;
+      padding: 0px !important;
+      font-size: var(--font-size-sm);
+    }
+  
+  
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+    }
+  
+    .logo-container .burger-btn {
+      display: block;
+      border: none;
+      background: var(--gradient-color);
+      background-clip: text;
+      color: transparent;
+      padding-top: 1.5px;
+      font-size: var(--font-size-xxl);
+  
+    }
+  
+
+  
+  
+    .sidebar-menu li.genres {
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: stretch;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-inline: 2rem;
+    }
+  
+    .sidebar-menu li.genres button {
+      padding: 1rem 1.5rem;
+      font-size: var(--font-size-md);
+    }
+
+}
 
 
+@media screen and (min-width: 769px) and (max-width:992px) {
+  .navbar-container {
+    gap:1.5rem;
+    flex-wrap: wrap-reverse;
+  }
+
+
+
+  .side-container {
+    padding:3rem !important;
+  }
+
+  main .card {
+    width:40%;
+    padding: 10rem 0 8%;
+  }
+
+
+  .main-container .card .card-content {
+    padding: 0.5rem 0.7rem !important;
+  }
+
+
+}
+
+@media screen and (min-width: 993px) and (max-width:1400px) {
+  main .card {
+    width: 30%;
+    padding: 10rem 0 1.5px !important;
+  }
+    
+    
+  .main-container .card .card-content {
+    padding: 0.5rem 0.7rem !important;
+  }
 }

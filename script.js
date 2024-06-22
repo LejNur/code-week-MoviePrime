@@ -196,10 +196,12 @@ const getGenreList = async () => {
       const genreID = event.target.id;
       endpoint = `discover/${type}`;
       query = `with_genres=${genreID}`;
-      
-
-      
        render(endpoint, query);
+       //close menu on mobile
+       setTimeout(() => {
+        sidebarMenuEl.classList.toggle("show");
+       }, 1000)
+
 
 
     })
@@ -245,7 +247,6 @@ sidebarMenuEl.addEventListener('click', (event) => {
       render('movie/popular', query);
       break;
     case "favorites":
-      
       renderCardList(favoriteMovies, mainContainerEl);
       break;
     default:

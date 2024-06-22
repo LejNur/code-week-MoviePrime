@@ -2,8 +2,6 @@
   padding: 3rem;
   height: inherit;
   outline: 1px solid red;
-  /* flex: 1 0 10%; */
-  /* grid-column: 10rem; */
   font-weight: var(--font-weight-normal);
   font-size: var(--font-size-lg);
 }
@@ -69,7 +67,9 @@
 }
 
 
-
+.burger-btn {
+  display:none;
+}
 
 
 

@@ -7,7 +7,7 @@
   align-items: center;
   gap: 2rem;
   padding-block:1.5rem;
-  z-index:1;
+
 }
 
 .navbar-container a {
@@ -15,7 +15,6 @@
   font-weight: var(--font-weight-light);
   color: var(--text-milk-white-color);
   transition: all ease-in-out 300ms;
-  
 }
 
 .navbar-container a:hover {
@@ -90,7 +89,6 @@
 #select-language option {
   border:none;
   font-size: var(--font-size-md);
-  padding:20px;
 }
 
 #select-language:focus {
