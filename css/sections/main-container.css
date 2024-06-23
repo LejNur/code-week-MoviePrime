@@ -73,18 +73,10 @@ main {
  
 } 
 
-/* .card:hover .card-content { */
-  /* transform: translateY(0); */
-  /* opacity:1; */
-  
-  
-
-/* } */
-
-
 .card:hover {
   transform: scale(1.05);
   overflow: visible;
+  cursor: pointer;
 
 }
 

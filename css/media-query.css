@@ -1,19 +1,4 @@
-/* Smartphone o piccoli Tablet */
-/* @media screen and (max-width: 480px) */
-
-/* Tablet in modalitÃ  verticale */
- /* @media all and (min-width: 481px) and (max-width: 736px) */
-
-
-/* Tablet in modalitÃ  orizzontale */
-/* @media all and (min-width: 737px) and (max-width: 1279px) */
-
-/* LAPTOP */
-/* @media all and (min-width: 738px) and (max-width: 1600px)
-
-/* DESKTOP LARGE*/
-/* @media screen and (min-width: 1900px) */
-
+/* Mobile */
 @media screen and (max-width: 480px) {
 
   .wrapper {
@@ -106,7 +91,6 @@ main .card .card-btn {
 
   }
 
-/* //moras burger button staviti na display:none na velikim ekranima */
 
 
   .sidebar-menu li.genres {
@@ -125,9 +109,27 @@ main .card .card-btn {
     font-size: var(--font-size-md);
   }
 
+  /*Single movie container */
+  .movie-container {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .movie-container .movie-poster {
+    display:none;
+    
+  }
+
+  iframe {
+    width:90% !important;
+  }
+
 
 }
 
+/* Tablet */
 @media screen and (min-width: 481px) and (max-width:768px) {
   .wrapper {
       flex-direction: column;
@@ -242,9 +244,26 @@ main .card .card-btn {
       font-size: var(--font-size-md);
     }
 
+/*Single movie container */
+  .movie-container {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .movie-container .movie-poster {
+    display:none;
+    
+  }
+
+  iframe {
+    width:90% !important;
+  }
+
 }
 
-
+/* Landscape Tablet */
 @media screen and (min-width: 769px) and (max-width:992px) {
   .navbar-container {
     gap:1.5rem;
@@ -267,9 +286,28 @@ main .card .card-btn {
     padding: 0.5rem 0.7rem !important;
   }
 
+/*Single movie container */
+.movie-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.movie-container .movie-poster {
+  width:30%;
+  
 
 }
 
+iframe {
+  width: 100% !important;
+}
+
+
+}
+
+
+/* Desktop */
 @media screen and (min-width: 993px) and (max-width:1400px) {
   main .card {
     width: 30%;
@@ -280,4 +318,7 @@ main .card .card-btn {
   .main-container .card .card-content {
     padding: 0.5rem 0.7rem !important;
   }
+
+
+
 }

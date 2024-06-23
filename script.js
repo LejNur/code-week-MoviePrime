@@ -2,6 +2,7 @@ import { GET } from "./js/get.js";
 import { renderCard, renderCardList } from "./js/renderCardList.js";
 import { translations } from "./js/translations.js";
 import { singleMovie } from "./js/singleMovie.js";
+import { videoTrailer } from "./js/singleMovie.js";
 
 
 
@@ -46,6 +47,7 @@ let favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies")) || [];
     language = selectLanguageEl.value;
     getGenreList();
     render(endpoint, query);
+    
   });
 
 
@@ -319,19 +321,18 @@ mainContainerEl.addEventListener('click', async (event) => {
   let cardID = Number(event.target.id);
   if(card.className === 'card') {
     console.log('card-----', event.target, 'id card-----', cardID);
-        
-    const result = await GET(`${type}/${cardID}`,page, query, language);
-    
+
+    const result = await GET(`${type}/${cardID}`, page, query, language);
+    console.log(result)
     singleMovie(result, mainContainerEl);
-    console.log(result);
+    const video = await GET(`${type}/${cardID}/videos`, page, query, language);
+    videoTrailer(video.results, mainContainerEl);
   }
 })
 
 
 //hamburger menu 
 const burgerBtn = document.querySelector('.burger-btn');
-console.log(burgerBtn);
-
 burgerBtn.addEventListener('click', () => {
   sidebarMenuEl.classList.toggle('show');
 })
