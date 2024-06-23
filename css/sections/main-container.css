@@ -3,6 +3,7 @@ main {
   flex-direction: column; 
 }
 
+
 .main-container {
   display: flex;
   justify-content: center;
@@ -15,7 +16,7 @@ main {
 
 .favorites {
   display:flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
 }

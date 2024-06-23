@@ -89,14 +89,10 @@ document.addEventListener('DOMContentLoaded', () => {
         el.innerHTML = ""; 
         el.appendChild(iconElement); 
         el.insertAdjacentHTML("beforeend", translation[key]); 
-       
       }
-          
-    
     });
   };
 
   languageSelector.addEventListener('change', updateContent);
-
   updateContent();
 });

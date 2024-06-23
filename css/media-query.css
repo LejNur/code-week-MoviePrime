@@ -10,6 +10,10 @@
     
   }
 
+  #header {
+    padding: 1.5rem 3rem;
+  }
+
   .side-container {
     width: 100%;
     padding: 0.2rem 0px !important;
@@ -155,6 +159,9 @@ main .card .card-btn {
       flex-direction: column;
     }
   
+    #header {
+      padding: 1.5rem 3rem;
+    }
     .side-container {
       width: 100%;
       padding: 0.2rem 0px !important;

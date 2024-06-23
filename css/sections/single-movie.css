@@ -1,7 +1,7 @@
 .movie-container {
   display: flex;
   justify-content: center;
-  align-items: top;
+  align-items: flex-start;
   gap:2.5rem;
   padding: 2rem;
   background-position:center;
@@ -50,7 +50,7 @@
 
 
 iframe {
-  width:60%;
+  width:100%;
   aspect-ratio: 1/0.5;
   border:none;
   border-radius:16px;

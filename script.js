@@ -7,6 +7,7 @@ import { translations } from "./js/translations.js";
 
 
 const mainContainerEl = document.querySelector(".main-container");
+const headerEl = document.querySelector('#header');
 const genreListEl = document.querySelector(".genres");
 const navbarContainerEl = document.querySelector('.navbar-container');
 const pageButtons = document.querySelectorAll(".page-btn");
@@ -45,7 +46,7 @@ let favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies")) || [];
     language = selectLanguageEl.value;
     getGenreList();
     render(endpoint, query);
-    
+    headerEl.textContent = translations[selectLanguageEl.value].movie
   });
 
 
@@ -116,7 +117,7 @@ let favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies")) || [];
         renderCardList(results, mainContainerEl);
         setTimeout(() => {
           dialogEl.close();
-        }, 2000);
+        }, 2500);
       });
 
       buttonNo.addEventListener("click", () => {
@@ -169,7 +170,6 @@ getGenreList();
 //Type Filter
 navbarContainerEl.addEventListener('click', (event) => {
   if(event.target.tagName === 'A') {
-
     const links = navbarContainerEl.querySelectorAll("a");
     links.forEach((link) => link.classList.remove("active"));
     event.target.classList.add("active");
@@ -180,6 +180,8 @@ navbarContainerEl.addEventListener('click', (event) => {
 
     endpoint = `${type}/${category}`;
     render(endpoint, query);
+    headerEl.textContent = translations[selectLanguageEl.value][typeID];
+
 
   }
     
@@ -199,16 +201,20 @@ sidebarMenuEl.addEventListener('click', (event) => {
       break;
     case "home":
       render('movie/popular', query);
-      mainContainerEl.classList.remove('favorites');
-      mainContainerEl.addEventListener('click', cardClickHandler);
+      mainContainerEl.classList.remove("favorites");
+      // mainContainerEl.addEventListener("click", cardClickHandler);
       break;
     case "favorites":
       renderCardList(favoriteMovies, mainContainerEl);
-      mainContainerEl.classList.add('favorites');
+      mainContainerEl.classList.add("favorites");
       break;
     default:
       break;
   }
+    //close sidebar on mobile
+      setTimeout(() => {
+        sidebarMenuEl.classList.toggle("show");
+      }, 1000);
 })
 
 //Search Movie Title

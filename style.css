@@ -6,7 +6,7 @@
 @import url('css/sections/navbar.css');
 @import url('css/sections/side-container.css');
 @import url('css/sections/dialog.css');
-@import url('css/sections/movie.css');
+@import url('css/sections/single-movie.css');
 
 body {
   background-color: var(--bg-color);
