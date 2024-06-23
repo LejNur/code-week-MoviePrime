@@ -9,7 +9,7 @@ main {
 }
 
 .main-container {
-  /* flex: 1 0 ; */
+
   /* outline:1px solid yellow; */
   display: flex;
   justify-content: center;
@@ -52,7 +52,7 @@ main {
   /* z-index:100; */
 }
 
-.card-btn {
+.card-btn, .single-movie-btn {
   background: var(--text-milk-white-color) ;
   border:none;
   border-radius: 50%;
@@ -66,10 +66,11 @@ main {
   
 }
 
- .card-btn:hover {
+ .card-btn:hover,
+  .single-movie-btn:hover {
   transform: scale(1.2);
   cursor: pointer;
-  z-index: -1;
+  /* z-index: -1; */
  
 } 
 

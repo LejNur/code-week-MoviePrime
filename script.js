@@ -67,7 +67,7 @@ let favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies")) || [];
   }
 
   mainContainerEl.addEventListener("click", (event) => {
-    if (event.target.tagName === "BUTTON") {
+    if (event.target.tagName === "BUTTON" || event.target.className === 'single-movie-btn') {
 
 //open dialog on add to favorites and close it on setTimeout
       if(event.target.textContent === '+') {
@@ -133,6 +133,8 @@ let favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies")) || [];
         })
       }
     }
+
+  
   }); 
 
 
@@ -189,6 +191,8 @@ const getGenreList = async () => {
 
     genreListEl.appendChild(genreBtnEl);
 
+
+
 // Filtering genre
     genreBtnEl.addEventListener('click', async (event) => {
 
@@ -229,6 +233,7 @@ navbarContainerEl.addEventListener('click', (event) => {
 
     endpoint = `${type}/${category}`;
     render(endpoint, query);
+
   }
     
 })
@@ -315,7 +320,7 @@ pageButtons.forEach((button) => {
 
 
 
-// single movie function
+// Single movie function
 mainContainerEl.addEventListener('click', async (event) => {
   let card = event.target;
   let cardID = Number(event.target.id);
@@ -327,7 +332,13 @@ mainContainerEl.addEventListener('click', async (event) => {
     singleMovie(result, mainContainerEl);
     const video = await GET(`${type}/${cardID}/videos`, page, query, language);
     videoTrailer(video.results, mainContainerEl);
+
+    
   }
+
+
+
+  
 })
 
 

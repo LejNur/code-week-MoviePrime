@@ -8,6 +8,7 @@ export function singleMovie (movie, container) {
   const subtitleEl = document.createElement('p');
   const descriptionEl = document.createElement('p');
   const taglineEl = document.createElement('p');
+  const buttonEl = document.createElement('button');
 
   movieContainerEl.classList.add('movie-container', 'overlay');
   movieContainerEl.style.backgroundImage= `url('https://image.tmdb.org/t/p/w1280${movie.backdrop_path}')`;
@@ -15,6 +16,9 @@ export function singleMovie (movie, container) {
   posterEl.src = `https://image.tmdb.org/t/p/w1280${movie.poster_path}`;
   movieDetailsEl.className = 'movie-content';
 
+  buttonEl.className ='single-movie-btn';
+  buttonEl.textContent = movie.isFavorite ? "-" : "+";
+  buttonEl.dataset.item = JSON.stringify(movie);
 
   titleEl.textContent = movie.title;
   subtitleEl.textContent = `Original Language: ${movie.original_language} | Duration: ${movie.runtime}minutes | Vote: ${movie.vote_average.toFixed(1)}`;
@@ -27,6 +31,7 @@ export function singleMovie (movie, container) {
   movieContainerEl.appendChild(posterEl);
   movieDetailsEl.appendChild(titleEl);
   movieDetailsEl.appendChild(subtitleEl);
+  movieDetailsEl.appendChild(buttonEl);
   movieDetailsEl.appendChild(descriptionEl);
   movieDetailsEl.appendChild(taglineEl);
   movieContainerEl.appendChild(movieDetailsEl);
@@ -58,4 +63,4 @@ export function videoTrailer (trailers, container) {
 
 }
 
-// https://api.themoviedb.org/3/movie/{movie_id}
+
