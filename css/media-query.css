@@ -127,6 +127,22 @@ main .card .card-btn {
   }
 
 
+  dialog {
+    padding: 1.5rem !important;
+    font-size: var(--font-size-sm)!important;
+    margin:10rem 3rem;
+  }
+
+    .button-container {
+      gap: 10px !important;
+    }
+  
+    .button-container button {
+      padding: 8px 20px !important;
+      font-size: var(--font-size-md) !important;
+    }
+
+
 }
 
 /* Tablet */
@@ -273,7 +289,7 @@ main .card .card-btn {
 
 
   .side-container {
-    padding:3rem !important;
+    padding:6rem 3rem !important;
   }
 
   main .card {

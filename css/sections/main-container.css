@@ -1,42 +1,48 @@
 main {
-  /* outline:1px solid greenyellow; */
   display: flex;
-/* za eventualni carousel */
-  flex-direction: column;
-  /* display: grid;
-  grid-template-columns: 15rem auto auto; */
-  
+  flex-direction: column; 
 }
 
 .main-container {
-
-  /* outline:1px solid yellow; */
   display: flex;
   justify-content: center;
   align-items:center;
-  /* za eventualni carousel */
   flex-wrap: wrap;
   gap: 2rem;
   padding-block: 2rem;
-  /* overflow: hidden; */
-
+  height:100%;
 }
+
+.favorites {
+  display:flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+
 
 .card {
   width:30%;
   height: 50px;
   padding: 10rem 0 2rem;
   border-radius: 15px;
-  box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  transition: transform 500ms ease; 
+  transition: all 500ms ease; 
+}
+
+.card:hover {
+  transform: scale(1.05);
+  overflow: visible;
+  cursor: pointer;
+    box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+
 }
 
 .card-content {
-  /* outline: 2px solid green; */
   background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2));
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(28px);
@@ -49,10 +55,10 @@ main {
   gap:1rem;
   margin-top: 20%;
   border-radius: 0 0 15px 15px;
-  /* z-index:100; */
+
 }
 
-.card-btn, .single-movie-btn {
+.card-btn {
   background: var(--text-milk-white-color) ;
   border:none;
   border-radius: 50%;
@@ -66,20 +72,14 @@ main {
   
 }
 
- .card-btn:hover,
-  .single-movie-btn:hover {
+ .card-btn:hover {
   transform: scale(1.2);
   cursor: pointer;
-  /* z-index: -1; */
+
  
 } 
 
-.card:hover {
-  transform: scale(1.05);
-  overflow: visible;
-  cursor: pointer;
 
-}
 
 
 .card-content h3 {

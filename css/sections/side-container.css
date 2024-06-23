@@ -1,7 +1,5 @@
 .side-container {
-  padding: 3rem;
-  height:100%;
-  /* outline: 1px solid red; */
+  padding: 6rem 3rem;
   font-weight: var(--font-weight-normal);
   font-size: var(--font-size-lg);
 }
@@ -16,12 +14,13 @@
 .side-container ul {
   padding: 0;
   list-style-type: none;
+
 }
 
 .side-container li  {
   margin-block: 2rem;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   align-content: center;
   gap: .5rem;
   transition: all ease-in 300ms;
@@ -70,29 +69,3 @@
 .burger-btn {
   display:none;
 }
-
-
-
-/* another solution for gradient border */
-/* .button {
-  padding: 0.5rem 1rem;
-  position: relative;
-  background-color: white;
-  background-clip: padding-box;
-  border: 5px solid transparent;
-  border-radius: 1.75rem;
-}
-
-.button::before {
-  content: "";
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  bottom: -5px;
-  left: -5px;
-  z-index: -1;
-  background-image: linear-gradient(90deg,
-      hsl(289, 65%, 64%),
-      hsl(226, 78%, 67%));
-  border-radius: 1.75rem;
-} */
