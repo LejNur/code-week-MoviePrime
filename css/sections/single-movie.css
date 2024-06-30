@@ -2,19 +2,20 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap:2.5rem;
+  gap: 2.5rem;
   padding: 2rem;
-  background-position:center;
+  background-position: center;
+  margin: 0 1.5rem;
 
 }
 
 .overlay {
-  border-image-source: linear-gradient(90deg, rgba(23, 23, 25, 0.8) 0% , rgba(23, 23, 25, 0.8) 60%);
+  border-image-source: linear-gradient(90deg, rgba(23, 23, 25, 0.8) 0%, rgba(23, 23, 25, 0.8) 60%);
   border-image-slice: fill 1;
 }
 
 .movie-poster {
-  width:30%;
+  width: 30%;
 }
 
 .movie-content {
@@ -22,14 +23,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  
+
 }
 
 .movie-content h2 {
   font-size: var(--font-size-xxxl);
   font-weight: var(--font-weight-bold);
   color: var(--text-milk-white-color);
-  padding:0;
+  padding: 0;
 }
 
 .movie-container .subtitle-paragraph {
@@ -50,9 +51,24 @@
 
 
 iframe {
-  width:100%;
+  width: 70%;
   aspect-ratio: 1/0.5;
-  border:none;
-  border-radius:16px;
- 
+  border: none;
+  border-radius: 16px;
+
+}
+
+.cast-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.cast-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

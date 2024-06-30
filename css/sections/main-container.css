@@ -1,21 +1,22 @@
 main {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 
 .main-container {
   display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 2rem;
   padding-block: 2rem;
-  height:100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .favorites {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
@@ -24,7 +25,7 @@ main {
 
 
 .card {
-  width:30%;
+  width: 400px;
   height: 50px;
   padding: 10rem 0 2rem;
   border-radius: 15px;
@@ -32,14 +33,14 @@ main {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  transition: all 500ms ease; 
+  transition: all 500ms ease;
 }
 
 .card:hover {
   transform: scale(1.05);
   overflow: visible;
   cursor: pointer;
-    box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+  box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
 
 }
 
@@ -53,32 +54,32 @@ main {
   align-items: flex-start;
   justify-content: space-between;
   padding: 1rem;
-  gap:1rem;
+  gap: 1rem;
   margin-top: 20%;
   border-radius: 0 0 15px 15px;
 
 }
 
 .card-btn {
-  background: var(--text-milk-white-color) ;
-  border:none;
+  background: var(--text-milk-white-color);
+  border: none;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding:6px 12px;
+  padding: 6px 12px;
   font-size: 24px;
   color: var(--text-dark-color);
   transition: all ease 500ms;
-  
+
 }
 
- .card-btn:hover {
+.card-btn:hover {
   transform: scale(1.2);
   cursor: pointer;
 
- 
-} 
+
+}
 
 
 
@@ -87,19 +88,19 @@ main {
   font-size: var(--heading-h3-size);
   font-weight: var(--font-weight-bold);
   color: var(--text-dark-color);
- 
+
 }
 
 
 .card-content p {
   font-size: var(--font-size-md);
   color: var(--text-milk-white-color);
-  margin:0;
+  margin: 0;
 }
 
 
-.page-buttons  {
-  width:100%;
+.page-buttons {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,7 +110,7 @@ main {
 
 .page-buttons .page-btn {
   background-color: transparent;
-  border:none;
+  border: none;
   color: var(--text-milk-white-color);
   cursor: pointer;
 }
@@ -123,6 +124,9 @@ main {
   transform: scale(1.2)
 }
 
-.wrapper{
-  display:flex;
+.wrapper {
+  display: flex;
+  /* display: grid;
+  grid-template-columns: 15rem 1fr; */
+
 }

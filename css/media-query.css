@@ -2,12 +2,12 @@
 @media screen and (max-width: 480px) {
 
   .wrapper {
-      flex-direction: column;
-    }
-    
+    flex-direction: column;
+  }
+
   main {
     flex-direction: column;
-    
+
   }
 
   #header {
@@ -18,10 +18,10 @@
     width: 100%;
     padding: 0.2rem 0px !important;
   }
-    
+
   .sidebar-menu {
     display: none;
-    padding:1rem;
+    padding: 1rem;
   }
 
   .show {
@@ -29,20 +29,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
   }
 
   .main-container {
     width: 100%;
 
-  } 
+  }
 
   main .navbar-container {
 
     flex-wrap: wrap;
     gap: 0.7rem;
     padding: 0.8rem 0 !important;
-    
+
   }
 
   main .navbar-container a {
@@ -50,22 +50,22 @@
   }
 
 
- main #select-language {
+  main #select-language {
     padding: 4px;
   }
 
 
-main .card {
-  width: 70%;
-  padding: 10rem 0 5rem;
-  box-shadow: rgba(255, 255, 255, 0.35) 0px 0px 10px;
-  background-position: center center;
-  transition: transform 500ms ease;
-}
+  main .card {
+    width: 70%;
+    padding: 10rem 0 5rem;
+    box-shadow: rgba(255, 255, 255, 0.35) 0px 0px 10px;
+    background-position: center center;
+    transition: transform 500ms ease;
+  }
 
-main .card .card-btn {
+  main .card .card-btn {
     padding: 8px 14px;
-}
+  }
 
 
 
@@ -78,19 +78,19 @@ main .card .card-btn {
 
 
   .logo-container {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    gap:1.5rem;
+    gap: 1.5rem;
   }
 
   .logo-container .burger-btn {
-    display:block;
-    border:none;
+    display: block;
+    border: none;
     background: var(--gradient-color);
     background-clip: text;
     color: transparent;
-    padding-top:1.5px ;
+    padding-top: 1.5px;
     font-size: var(--font-size-xxl);
 
   }
@@ -99,52 +99,52 @@ main .card .card-btn {
 
   .sidebar-menu li.genres {
     text-align: center;
-    display:flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: stretch;
-    flex-wrap:wrap;
-    gap:1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
     padding-inline: 2rem;
   }
 
   .sidebar-menu li.genres button {
-    padding:1rem 1.5rem;
+    padding: 1rem 1.5rem;
     font-size: var(--font-size-md);
   }
 
   /*Single movie container */
   .movie-container {
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
   .movie-container .movie-poster {
-    display:none;
-    
+    display: none;
+
   }
 
   iframe {
-    width:90% !important;
+    width: 90% !important;
   }
 
 
   dialog {
     padding: 1.5rem !important;
-    font-size: var(--font-size-sm)!important;
-    margin:10rem 3rem;
+    font-size: var(--font-size-sm) !important;
+    margin: 10rem 3rem;
   }
 
-    .button-container {
-      gap: 10px !important;
-    }
-  
-    .button-container button {
-      padding: 8px 20px !important;
-      font-size: var(--font-size-md) !important;
-    }
+  .button-container {
+    gap: 10px !important;
+  }
+
+  .button-container button {
+    padding: 8px 20px !important;
+    font-size: var(--font-size-md) !important;
+  }
 
 
 }
@@ -152,136 +152,137 @@ main .card .card-btn {
 /* Tablet */
 @media screen and (min-width: 481px) and (max-width:768px) {
   .wrapper {
-      flex-direction: column;
-    }
-  
-    main {
-      flex-direction: column;
-    }
-  
-    #header {
-      padding: 1.5rem 3rem;
-    }
-    .side-container {
-      width: 100%;
-      padding: 0.2rem 0px !important;
-    }
-  
-    .sidebar-menu {
-      display: none;
-      padding: 1rem;
-    }
-  
-    .show {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-     
-    }
+    flex-direction: column;
+  }
 
-    .burger-btn {
-      display:block;
-    }
-  
-    .main-container {
-      width: 100%;
-  
-    }
-  
-    main .navbar-container {
-      flex-wrap: wrap;
-      gap: 2rem;
-      padding: 0.8rem 0 !important;
-  
-    }
-  
-    main .navbar-container a {
-      font-size: var(--font-size-xl);
-    }
-  
-  
-    main #select-language {
-      padding: 4px;
-    }
-  
-  
-    main .card {
-      width: 70%;
-      padding: 10rem 0 15%;
-      box-shadow: rgba(255, 255, 255, 0.35) 0px 0px 10px;
-      background-position: center center;
-      transition: transform 500ms ease;
-    }
-  
-    main .card .card-btn {
-      padding: 8px 14px;
-    }
-  
-    main .main-container .card-content {
+  main {
+    flex-direction: column;
+  }
+
+  #header {
+    padding: 1.5rem 3rem;
+  }
+
+  .side-container {
+    width: 100%;
+    padding: 0.2rem 0px !important;
+  }
+
+  .sidebar-menu {
+    display: none;
+    padding: 1rem;
+  }
+
+  .show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .burger-btn {
+    display: block;
+  }
+
+  .main-container {
+    width: 100%;
+
+  }
+
+  main .navbar-container {
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 0.8rem 0 !important;
+
+  }
+
+  main .navbar-container a {
+    font-size: var(--font-size-xl);
+  }
+
+
+  main #select-language {
+    padding: 4px;
+  }
+
+
+  main .card {
+    width: 70%;
+    padding: 10rem 0 15%;
+    box-shadow: rgba(255, 255, 255, 0.35) 0px 0px 10px;
+    background-position: center center;
+    transition: transform 500ms ease;
+  }
+
+  main .card .card-btn {
+    padding: 8px 14px;
+  }
+
+  main .main-container .card-content {
     padding: 0.9rem 0.7rem !important;
   }
 
-  
-    .page-buttons {
-      width: 100%;
-      padding: 0px !important;
-      font-size: var(--font-size-sm);
-    }
-  
-  
-    .logo-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1.5rem;
-    }
-  
-    .logo-container .burger-btn {
-      display: block;
-      border: none;
-      background: var(--gradient-color);
-      background-clip: text;
-      color: transparent;
-      padding-top: 1.5px;
-      font-size: var(--font-size-xxl);
-  
-    }
-  
 
-  
-  
-    .sidebar-menu li.genres {
-      text-align: center;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: stretch;
-      flex-wrap: wrap;
-      gap: 1rem;
-      padding-inline: 2rem;
-    }
-  
-    .sidebar-menu li.genres button {
-      padding: 1rem 1.5rem;
-      font-size: var(--font-size-md);
-    }
+  .page-buttons {
+    width: 100%;
+    padding: 0px !important;
+    font-size: var(--font-size-sm);
+  }
 
-/*Single movie container */
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .logo-container .burger-btn {
+    display: block;
+    border: none;
+    background: var(--gradient-color);
+    background-clip: text;
+    color: transparent;
+    padding-top: 1.5px;
+    font-size: var(--font-size-xxl);
+
+  }
+
+
+
+
+  .sidebar-menu li.genres {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-inline: 2rem;
+  }
+
+  .sidebar-menu li.genres button {
+    padding: 1rem 1.5rem;
+    font-size: var(--font-size-md);
+  }
+
+  /*Single movie container */
   .movie-container {
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
   .movie-container .movie-poster {
-    display:none;
-    
+    display: none;
+
   }
 
   iframe {
-    width:90% !important;
+    width: 90% !important;
   }
 
 }
@@ -289,18 +290,18 @@ main .card .card-btn {
 /* Landscape Tablet */
 @media screen and (min-width: 769px) and (max-width:992px) {
   .navbar-container {
-    gap:1.5rem;
+    gap: 1.5rem;
     flex-wrap: wrap-reverse;
   }
 
 
 
   .side-container {
-    padding:6rem 3rem !important;
+    padding: 6rem 3rem !important;
   }
 
   main .card {
-    width:40%;
+    width: 40%;
     padding: 10rem 0 8%;
   }
 
@@ -309,39 +310,37 @@ main .card .card-btn {
     padding: 0.5rem 0.7rem !important;
   }
 
-/*Single movie container */
-.movie-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+  /*Single movie container */
+  .movie-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-.movie-container .movie-poster {
-  width:30%;
-  
+  .movie-container .movie-poster {
+    width: 30%;
 
-}
 
-iframe {
-  width: 100% !important;
-}
+  }
+
+  iframe {
+    width: 100% !important;
+  }
 
 
 }
 
 
 /* Desktop */
-@media screen and (min-width: 993px) and (max-width:1400px) {
+@media screen and (min-width: 993px) and (max-width:1100px) {
   main .card {
     width: 30%;
     padding: 10rem 0 1.5px !important;
   }
-    
-    
+
+
   .main-container .card .card-content {
     padding: 0.5rem 0.7rem !important;
   }
-
-
 
 }

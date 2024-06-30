@@ -11,13 +11,14 @@
   background-clip: text;
   color: transparent;
 }
+
 .side-container ul {
   padding: 0;
   list-style-type: none;
 
 }
 
-.side-container li  {
+.side-container li {
   margin-block: 2rem;
   display: flex;
   align-items: center;
@@ -41,17 +42,17 @@
 }
 
 .genres button {
-    background: transparent;
-      padding: 0.5rem 1rem;
-      background-image: linear-gradient(90deg, var(--bg-color), var(--bg-color)), var(--gradient-color);
-      background-clip: padding-box, border-box;
-      background-origin: border-box;
-      border: 2px solid transparent;
-      border-radius: 1.75rem;
-      color: var(--text-milk-white-color);
-      cursor:pointer;
-      transition: all ease-in 300ms; 
-    }
+  background: transparent;
+  padding: 0.5rem 1rem;
+  background-image: linear-gradient(90deg, var(--bg-color), var(--bg-color)), var(--gradient-color);
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  border: 2px solid transparent;
+  border-radius: 1.75rem;
+  color: var(--text-milk-white-color);
+  cursor: pointer;
+  transition: all ease-in 300ms;
+}
 
 .genres button:hover {
   transform: scale(1.2);
@@ -61,11 +62,11 @@
 .genres button.active {
   font-weight: 500;
   transform: scale(1.5);
-  margin-block:1rem;
+  margin-block: 1rem;
   border: 3px solid transparent;
 }
 
 
 .burger-btn {
-  display:none;
+  display: none;
 }
