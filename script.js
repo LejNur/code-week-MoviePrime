@@ -268,9 +268,12 @@ const cardClickHandler = async (event) => {
       language
     );
     singleMovie(result, mainContainerEl);
-    console.log(result.credits.cast);
+
     const video = await GET(`${type}/${cardID}/videos`, page, query, language);
     videoTrailer(video.results, mainContainerEl);
+  } else if (card.className === "close-btn") {
+    //Rerendering page with all the cards
+    renderCardList(results, mainContainerEl);
   }
 };
 

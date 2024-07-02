@@ -3,9 +3,9 @@
   --neon-color-green: #09FACA;
   --neon-color-blue: #00FAFE;
   --neon-color-pink: #FF35B8;
-  --text-milk-white-color:  #FEFCFF;
-  --text-dark-color:rgba(23, 23, 25, 0.9);
+  --text-milk-white-color: #fdfaff;
+  --text-dark-color: rgba(23, 23, 25, 0.9);
   --gradient-color: linear-gradient(90deg, rgba(9, 250, 202, 1) 0%, rgba(0, 250, 254, 1) 60%);
 
- 
+
 }

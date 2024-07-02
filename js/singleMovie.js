@@ -9,6 +9,10 @@ export function singleMovie(movie, container) {
   const descriptionEl = document.createElement("p");
   const taglineEl = document.createElement("p");
 
+  const closeBtn = document.createElement("button");
+  closeBtn.className = "close-btn";
+  closeBtn.textContent = "X";
+
   //Cast container
   const castEl = document.createElement("div");
 
@@ -52,6 +56,7 @@ export function singleMovie(movie, container) {
   movieDetailsEl.appendChild(subtitleEl);
   movieDetailsEl.appendChild(descriptionEl);
   movieDetailsEl.appendChild(taglineEl);
+  movieDetailsEl.appendChild(closeBtn);
   movieContainerEl.appendChild(movieDetailsEl);
   container.appendChild(movieContainerEl);
 
