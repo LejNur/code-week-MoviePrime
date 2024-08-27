@@ -14,7 +14,6 @@ export function renderCard(item, container) {
   const cardContent = document.createElement("div");
   const cardTitle = document.createElement("h3");
   const cardReleaseDate = document.createElement("p");
-  // const cardInfo = document.createElement("p");
 
   cardContent.className = "card-content";
   cardTitle.textContent = item.title ?? item.name;

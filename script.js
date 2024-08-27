@@ -5,7 +5,6 @@ import { videoTrailer } from "./js/singleMovie.js";
 import { translations } from "./js/translations.js";
 
 const mainContainerEl = document.querySelector(".main-container");
-const headerEl = document.querySelector("#header");
 const genreListEl = document.querySelector(".genres");
 const navbarContainerEl = document.querySelector(".navbar-container");
 const pageButtons = document.querySelectorAll(".page-btn");
@@ -41,7 +40,6 @@ selectLanguageEl.addEventListener("change", () => {
   language = selectLanguageEl.value;
   getGenreList();
   render(endpoint, query);
-  headerEl.textContent = translations[selectLanguageEl.value].movie;
 });
 
 //Handling favorite movies
@@ -52,7 +50,7 @@ function favoriteMoviesHandler(movie) {
   localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies));
 }
 
-//removing from favorites
+//Removing from favorites
 function removeFavoriteMovie(movie) {
   favoriteMovies = favoriteMovies.filter((item) => item.id !== movie.id);
   localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies));
@@ -145,7 +143,7 @@ const getGenreList = async () => {
       endpoint = `discover/${type}`;
       query = `with_genres=${genreID}`;
       render(endpoint, query);
-      //close sidebar on mobile
+      //Close sidebar on mobile
       setTimeout(() => {
         sidebarMenuEl.classList.toggle("show");
       }, 1000);
@@ -168,7 +166,7 @@ navbarContainerEl.addEventListener("click", (event) => {
 
     endpoint = `${type}/${category}`;
     render(endpoint, query);
-    headerEl.textContent = translations[selectLanguageEl.value][typeID];
+
     getGenreList();
   }
 });
@@ -187,7 +185,6 @@ sidebarMenuEl.addEventListener("click", (event) => {
     case "home":
       render("movie/popular", query);
       mainContainerEl.classList.remove("favorites");
-      // mainContainerEl.addEventListener("click", cardClickHandler);
       break;
     case "favorites":
       renderCardList(favoriteMovies, mainContainerEl);
@@ -196,7 +193,7 @@ sidebarMenuEl.addEventListener("click", (event) => {
     default:
       break;
   }
-  //close sidebar on mobile
+  //Close sidebar on mobile
   setTimeout(() => {
     sidebarMenuEl.classList.toggle("show");
   }, 1000);
@@ -218,7 +215,7 @@ searchButtonEl.addEventListener("click", async () => {
   render(endpoint, query);
 });
 
-// Disable search button if input is empty
+//Disable search button if input is empty
 searchInputEl.addEventListener("input", () => {
   if (searchInputEl.value.trim() === "") {
     searchButtonEl.disabled = true;

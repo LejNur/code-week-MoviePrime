@@ -15,8 +15,7 @@
   }
 
   .side-container {
-    width: 100%;
-    padding: 0.2rem 0px !important;
+    margin: 0 auto;
   }
 
   .sidebar-menu {
@@ -130,11 +129,16 @@
     width: 90% !important;
   }
 
+  .close-btn {
+    padding: 4px 8px !important;
+    font-size: 16px !important;
+  }
 
-  dialog {
+
+  .dialog {
     padding: 1.5rem !important;
     font-size: var(--font-size-sm) !important;
-    margin: 10rem 3rem;
+    margin: 10rem auto;
   }
 
   .button-container {
@@ -164,8 +168,8 @@
   }
 
   .side-container {
-    width: 100%;
-    padding: 0.2rem 0px !important;
+    margin: 0 auto;
+
   }
 
   .sidebar-menu {
@@ -209,7 +213,7 @@
 
   main .card {
     width: 70%;
-    padding: 10rem 0 15%;
+    padding: 10rem 0 17%;
     box-shadow: rgba(255, 255, 255, 0.35) 0px 0px 10px;
     background-position: center center;
     transition: transform 500ms ease;

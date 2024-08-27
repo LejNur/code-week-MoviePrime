@@ -13,12 +13,10 @@ main {
   gap: 2rem;
   padding-block: 2rem;
   height: 100%;
-  /* overflow-x: hidden; */
 }
 
 .favorites {
   display: flex;
-  justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
 }
@@ -64,7 +62,6 @@ main {
 
 .card-btn {
   background: transparent;
-  /* background: var(--text-milk-white-color); */
   border: 1px solid var(--neon-color-blue);
   border-radius: 50%;
   display: flex;
@@ -91,7 +88,6 @@ main {
 .card-content h3 {
   font-size: var(--heading-h3-size);
   font-weight: var(--font-weight-bold);
-  /* color: var(--text-dark-color); */
   color: var(--neon-color-blue);
 
 }
@@ -131,7 +127,7 @@ main {
 
 .wrapper {
   display: flex;
-  /* display: grid;
-  grid-template-columns: 15rem 1fr; */
+  gap: 4rem;
+
 
 }
